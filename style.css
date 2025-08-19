@@ -1,0 +1,30 @@
+/* Custom site styles UwU ✨ */
+
+.banner {
+  height: 300px;
+  background: url("https://via.placeholder.com/1200x300") center/cover no-repeat;
+}
+
+/* Footer */
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Section spacing */
+section {
+  padding: 20px 0;
+}
+
+/* Card hover effect */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
