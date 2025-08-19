@@ -1,8 +1,38 @@
 /* Custom site styles UwU ✨ */
 
 .banner {
-  height: 300px;
-  background: url("https://via.placeholder.com/1200x300") center/cover no-repeat;
+  position: relative;
+  width: 100%;
+  height: 40vh; /* dynamic height based on screen */
+  min-height: 250px; /* don’t shrink too small */
+  max-height: 500px; /* don’t stretch too tall */
+  background: url("public/img/projet_pornichet_2027.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* text on top will be white */
+  text-align: center;
+}
+
+/* Optional overlay (dark gradient for readability) */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* darker overlay */
+}
+
+/* Banner text styling */
+.banner h1 {
+  position: relative; /* so text appears above overlay */
+  font-size: 2.5rem;
+  font-weight: bold;
+  z-index: 1;
+}
+.banner p {
+  position: relative;
+  font-size: 1.2rem;
+  z-index: 1;
 }
 
 /* Footer */
