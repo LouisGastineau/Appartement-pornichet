@@ -58,3 +58,45 @@ section {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+}
+@media (max-width: 991px) {
+  /* stack links vertically on mobile */
+  .navbar-nav.flex-row {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Center the brand perfectly on desktop */
+.center-brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap; /* prevents wrap from nudging it */
+  pointer-events: auto;
+  z-index: 2; /* above background, below toggler (which has z-3) */
+}
+
+/* Make mobile nice: brand becomes normal flow & centered, links stack */
+@media (max-width: 991.98px) { /* matches navbar-expand-lg breakpoint */
+  .center-brand {
+    position: static;
+    transform: none;
+    margin: 0 auto;           /* center in row */
+  }
+  .navbar-collapse .navbar-nav {
+    flex-direction: column;   /* stack links */
+    align-items: center;
+    gap: .25rem;
+    margin-top: .5rem;
+  }
+}
+
+nav img {
+    max-height: 20vh;
+    
+}
