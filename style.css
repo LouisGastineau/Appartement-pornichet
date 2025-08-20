@@ -74,7 +74,7 @@ section {
 .center-brand {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 150%;
   transform: translate(-50%, -50%);
   white-space: nowrap; /* prevents wrap from nudging it */
   pointer-events: auto;
@@ -96,7 +96,11 @@ section {
   }
 }
 
-nav img {
-    max-height: 20vh;
-    
+.center-brand img {
+  height: 150px;   /* shrink logo to fit */
+  width: auto;    /* keep proportions */
+}
+
+.navbar {
+min-height: 80px;
 }
