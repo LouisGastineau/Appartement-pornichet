@@ -45,10 +45,6 @@ footer {
   color: #555;
 }
 
-/* Section spacing */
-section {
-  padding: 20px 0;
-}
 
 /* Card hover effect */
 .card {
@@ -103,4 +99,28 @@ section {
 
 .navbar {
 min-height: 80px;
+}
+
+section {
+  padding: 40px 0;
+  border-bottom: 1px solid #eee; /* subtle separator */
+}
+
+/* Text improvements */
+section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Image / Video tweaks */
+.img-fluid.rounded.shadow {
+  max-height: 400px;
+  object-fit: cover;
+}
+.custom-video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
