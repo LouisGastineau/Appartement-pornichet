@@ -20,7 +20,7 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 ### Homepage
 ![Homepage Screenshot](screenshots/homepage-screenshot.png)
 
-The homepage welcomes visitors with a beautiful banner featuring Pornichet's beach and marina, along with the tagline "Bienvenue à Pornichet! - Votre séjour comfortable à 10 minutes de la plage" (Welcome to Pornichet! - Your comfortable stay 10 minutes from the beach).
+The homepage welcomes visitors with a beautiful banner featuring Pornichet's beach and marina, along with the tagline "Bienvenue à Pornichet! - Votre séjour confortable à 10 minutes de la plage" (Welcome to Pornichet! - Your comfortable stay 10 minutes from the beach).
 
 ### Apartment & Rules Page
 ![Apartment Rules Screenshot](screenshots/appartement-screenshot.png)
