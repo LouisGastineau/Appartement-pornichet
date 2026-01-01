@@ -1,126 +1,201 @@
-/* Custom site styles UwU ✨ */
+/* Custom site styles - Coastal Theme ✨ */
 
-.banner {
-  position: relative;
-  width: 100%;
-  height: 40vh; /* dynamic height based on screen */
-  min-height: 250px; /* don’t shrink too small */
-  max-height: 500px; /* don’t stretch too tall */
-  background: url("public/img/projet_pornichet_2027.jpg") center/cover no-repeat;
+/* Color Palette - Cozy Littoral/Coastal Theme */
+:root {
+  --coastal-blue: #4A90A4;
+  --soft-sand: #F4E4C1;
+  --warm-white: #FFF9F0;
+  --sea-foam: #8CBCB9;
+  --deep-ocean: #2C5F7C;
+  --sunset-coral: #E8A598;
+  --light-gray: #F5F5F5;
+}
+
+body {
+  background-color: var(--warm-white);
+  color: #333;
+}
+
+/* Navbar styling with coastal colors */
+.navbar {
+  min-height: 70px;
+  background: linear-gradient(135deg, var(--coastal-blue) 0%, var(--sea-foam) 100%) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--soft-sand) !important;
+  transform: translateY(-2px);
+}
+
+/* Center the brand logo */
+.center-brand {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white; /* text on top will be white */
-  text-align: center;
-}
-
-/* Optional overlay (dark gradient for readability) */
-.banner::before {
-  content: "";
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3); /* darker overlay */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+  z-index: 2;
 }
 
-/* Banner text styling */
-.banner h1 {
-  position: relative; /* so text appears above overlay */
-  font-size: 2.5rem;
-  font-weight: bold;
-  z-index: 1;
-}
-.banner p {
-  position: relative;
-  font-size: 1.2rem;
-  z-index: 1;
+.center-brand img {
+  height: 60px;   /* Reduced from 150px for better fit */
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-/* Footer */
-footer {
-  background-color: #f8f9fa;
-  padding: 20px 0;
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-
-/* Card hover effect */
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.navbar-nav .nav-link {
-  font-weight: 500;
-}
-@media (max-width: 991px) {
-  /* stack links vertically on mobile */
+/* Mobile navbar adjustments */
+@media (max-width: 991.98px) {
+  .navbar {
+    min-height: 60px;
+  }
+  
+  .center-brand {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+  }
+  
+  .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+  }
+  
   .navbar-nav.flex-row {
     flex-direction: column;
     margin-bottom: 1rem;
   }
 }
 
-/* Center the brand perfectly on desktop */
-.center-brand {
+/* Banner with better proportions */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 35vh;
+  min-height: 200px;
+  max-height: 400px;
+  background: url("public/img/projet_pornichet_2027.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
+}
+
+/* Overlay for readability */
+.banner::before {
+  content: "";
   position: absolute;
-  left: 50%;
-  top: 150%;
-  transform: translate(-50%, -50%);
-  white-space: nowrap; /* prevents wrap from nudging it */
-  pointer-events: auto;
-  z-index: 2; /* above background, below toggler (which has z-3) */
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44, 95, 124, 0.4) 0%, rgba(74, 144, 164, 0.3) 100%);
 }
 
-/* Make mobile nice: brand becomes normal flow & centered, links stack */
-@media (max-width: 991.98px) { /* matches navbar-expand-lg breakpoint */
-  .center-brand {
-    position: static;
-    transform: none;
-    margin: 0 auto;           /* center in row */
-  }
-  .navbar-collapse .navbar-nav {
-    flex-direction: column;   /* stack links */
-    align-items: center;
-    gap: .25rem;
-    margin-top: .5rem;
-  }
+/* Banner text styling */
+.banner h1 {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: bold;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.center-brand img {
-  height: 150px;   /* shrink logo to fit */
-  width: auto;    /* keep proportions */
+.banner p {
+  position: relative;
+  font-size: 1.2rem;
+  z-index: 1;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.navbar {
-min-height: 80px;
-}
-
+/* Section styling */
 section {
   padding: 40px 0;
-  border-bottom: 1px solid #eee; /* subtle separator */
+  border-bottom: 1px solid #eee;
 }
 
-/* Text improvements */
 section h2 {
   margin-bottom: 20px;
   font-size: 2rem;
   font-weight: 600;
+  color: var(--deep-ocean);
 }
 
-/* Image / Video tweaks */
+section p, section li {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Card styling with coastal theme */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(74, 144, 164, 0.2);
+}
+
+.card-title {
+  color: var(--deep-ocean);
+  font-weight: 600;
+}
+
+/* Image styling */
 .img-fluid.rounded.shadow {
   max-height: 400px;
   object-fit: cover;
+  border-radius: 12px;
 }
+
 .custom-video {
   width: 100%;
   max-width: 500px;
   border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Footer with coastal colors */
+footer {
+  background: linear-gradient(135deg, var(--deep-ocean) 0%, var(--coastal-blue) 100%);
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.95rem;
+  color: white;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+/* Container improvements */
+.container {
+  max-width: 1200px;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--coastal-blue);
+  border-color: var(--coastal-blue);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--deep-ocean);
+  border-color: var(--deep-ocean);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 164, 0.3);
 }
