@@ -9,6 +9,7 @@
   --deep-ocean: #2C5F7C;
   --sunset-coral: #E8A598;
   --light-gray: #F5F5F5;
+  --navbar-logo-spacing: 80px;
 }
 
 body {
@@ -56,16 +57,16 @@ body {
 
 /* Add padding to navbar items to prevent logo overlap */
 .navbar-collapse .navbar-nav {
-  padding: 0 80px; /* Add padding to create space for center logo */
+  padding: 0 var(--navbar-logo-spacing); /* Add padding to create space for center logo */
 }
 
 .navbar-collapse .navbar-nav:first-of-type {
-  padding-right: 80px;
+  padding-right: var(--navbar-logo-spacing);
   padding-left: 0;
 }
 
 .navbar-collapse .navbar-nav:last-of-type {
-  padding-left: 80px;
+  padding-left: var(--navbar-logo-spacing);
   padding-right: 0;
 }
 
