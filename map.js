@@ -115,42 +115,45 @@ function addRecommendedLocations() {
     }
   ];
   
-  // Add marker for each location
-  locations.forEach((location) => {
-    const marker = new google.maps.Marker({
-      position: location.position,
-      map: map,
-      title: location.title,
-      animation: google.maps.Animation.DROP,
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 8,
-        fillColor: location.type === 'restaurant' ? '#E8A598' : '#4A90A4',
-        fillOpacity: 0.9,
-        strokeColor: '#ffffff',
-        strokeWeight: 2
-      }
-    });
-    
-    // Add click listener to show info window
-    marker.addListener('click', () => {
-      const contentString = `
-        <div style="max-width: 300px; padding: 10px;">
-          <h3 style="margin: 0 0 10px 0; color: #2C5F7C; font-size: 1.2rem;">
-            ${location.icon} ${location.title}
-          </h3>
-          <p style="margin: 0 0 8px 0; color: #555; line-height: 1.5;">
-            ${location.description}
-          </p>
-          <p style="margin: 0; font-weight: 500; color: #4A90A4;">
-            ${location.rating}
-          </p>
-        </div>
-      `;
+  // Add marker for each location with staggered animation
+  locations.forEach((location, index) => {
+    // Stagger marker drops for better visual effect
+    setTimeout(() => {
+      const marker = new google.maps.Marker({
+        position: location.position,
+        map: map,
+        title: location.title,
+        animation: google.maps.Animation.DROP,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 8,
+          fillColor: location.type === 'restaurant' ? '#E8A598' : '#4A90A4',
+          fillOpacity: 0.9,
+          strokeColor: '#ffffff',
+          strokeWeight: 2
+        }
+      });
       
-      infoWindow.setContent(contentString);
-      infoWindow.open(map, marker);
-    });
+      // Add click listener to show info window
+      marker.addListener('click', () => {
+        const contentString = `
+          <div style="max-width: 300px; padding: 10px;">
+            <h3 style="margin: 0 0 10px 0; color: #2C5F7C; font-size: 1.2rem;">
+              ${location.icon} ${location.title}
+            </h3>
+            <p style="margin: 0 0 8px 0; color: #555; line-height: 1.5;">
+              ${location.description}
+            </p>
+            <p style="margin: 0; font-weight: 500; color: #4A90A4;">
+              ${location.rating}
+            </p>
+          </div>
+        `;
+        
+        infoWindow.setContent(contentString);
+        infoWindow.open(map, marker);
+      });
+    }, index * 80); // 80ms delay between each marker
   });
   
   // Add legend
