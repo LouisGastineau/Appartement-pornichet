@@ -30,7 +30,7 @@ function initMap() {
   addRecommendedLocations();
 }
 
-// Add markers for recommended restaurants and POIs
+// Add markers for recommended restaurants and food-related locations
 function addRecommendedLocations() {
   const locations = [
     {
@@ -80,6 +80,22 @@ function addRecommendedLocations() {
       description: "Restaurant élégant dans une villa historique. Cuisine française créative.",
       rating: "⭐⭐⭐⭐",
       icon: "🏛️"
+    },
+    {
+      position: { lat: 47.2655, lng: -2.3412 },
+      title: "Marché de Pornichet",
+      type: "food",
+      description: "Marché local avec produits frais, légumes, fromages et artisanat. Ouvert mercredi et samedi matin.",
+      rating: "🛒",
+      icon: "🏪"
+    },
+    {
+      position: { lat: 47.2628, lng: -2.3440 },
+      title: "Boulangerie Artisanale",
+      type: "food",
+      description: "Boulangerie traditionnelle. Pain frais, viennoiseries et pâtisseries maison.",
+      rating: "🥖",
+      icon: "🥖"
     }
   ];
   
