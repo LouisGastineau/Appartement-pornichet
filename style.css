@@ -43,14 +43,15 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  pointer-events: auto;
   z-index: 2;
+  pointer-events: none;
 }
 
 .center-brand img {
   height: 60px;   /* Reduced from 150px for better fit */
   width: auto;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  pointer-events: auto;
 }
 
 /* Mobile navbar adjustments */
