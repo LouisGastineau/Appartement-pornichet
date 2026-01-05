@@ -1,7 +1,7 @@
 # Google Maps API Setup Instructions
 
 ## Overview
-The website now includes an interactive Google Maps feature on the "Restaurants" page (`equipment.html`) that displays recommended restaurants and points of interest in Pornichet.
+The website now includes an interactive Google Maps feature on the "Se nourrir" page (`se-nourrir.html`) that displays recommended restaurants, bakeries, and markets in Pornichet.
 
 ## Getting a Google Maps API Key
 
@@ -35,7 +35,7 @@ To use the Google Maps feature, you need to obtain a free API key from Google:
    - Click "Save"
 
 6. **Add the API key to your website**
-   - Open `equipment.html`
+   - Open `se-nourrir.html`
    - Find the line: `src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap"`
    - Replace `YOUR_API_KEY_HERE` with your actual API key
 

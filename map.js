@@ -30,7 +30,7 @@ function initMap() {
   addRecommendedLocations();
 }
 
-// Add markers for recommended restaurants and POIs
+// Add markers for recommended restaurants and food-related locations
 function addRecommendedLocations() {
   const locations = [
     {
@@ -66,30 +66,6 @@ function addRecommendedLocations() {
       icon: "☕"
     },
     {
-      position: { lat: 47.2655, lng: -2.3412 },
-      title: "Marché de Pornichet",
-      type: "poi",
-      description: "Marché local avec produits frais, légumes, fromages et artisanat. Ouvert mercredi et samedi matin.",
-      rating: "🛒",
-      icon: "🏪"
-    },
-    {
-      position: { lat: 47.2570, lng: -2.3380 },
-      title: "Plage de la Source",
-      type: "poi",
-      description: "Belle plage de sable fin, idéale pour la baignade et les activités nautiques.",
-      rating: "🏖️",
-      icon: "🏖️"
-    },
-    {
-      position: { lat: 47.2620, lng: -2.3395 },
-      title: "Port de Plaisance",
-      type: "poi",
-      description: "Port de plaisance avec promenade. Parfait pour une balade en bord de mer.",
-      rating: "⛵",
-      icon: "⚓"
-    },
-    {
       position: { lat: 47.2590, lng: -2.3360 },
       title: "L'Océan",
       type: "restaurant",
@@ -98,20 +74,28 @@ function addRecommendedLocations() {
       icon: "🍷"
     },
     {
-      position: { lat: 47.2628, lng: -2.3440 },
-      title: "Boulangerie Artisanale",
-      type: "poi",
-      description: "Boulangerie traditionnelle. Pain frais, viennoiseries et pâtisseries maison.",
-      rating: "🥖",
-      icon: "🥖"
-    },
-    {
       position: { lat: 47.2608, lng: -2.3375 },
       title: "La Villa Flornoy",
       type: "restaurant",
       description: "Restaurant élégant dans une villa historique. Cuisine française créative.",
       rating: "⭐⭐⭐⭐",
       icon: "🏛️"
+    },
+    {
+      position: { lat: 47.2655, lng: -2.3412 },
+      title: "Marché de Pornichet",
+      type: "food",
+      description: "Marché local avec produits frais, légumes, fromages et artisanat. Ouvert mercredi et samedi matin.",
+      rating: "🛒",
+      icon: "🏪"
+    },
+    {
+      position: { lat: 47.2628, lng: -2.3440 },
+      title: "Boulangerie Artisanale",
+      type: "food",
+      description: "Boulangerie traditionnelle. Pain frais, viennoiseries et pâtisseries maison.",
+      rating: "🥖",
+      icon: "🥖"
     }
   ];
   
@@ -127,7 +111,7 @@ function addRecommendedLocations() {
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
           scale: 8,
-          fillColor: location.type === 'restaurant' ? '#E8A598' : '#4A90A4',
+          fillColor: '#E8A598',
           fillOpacity: 0.9,
           strokeColor: '#ffffff',
           strokeWeight: 2
@@ -155,35 +139,6 @@ function addRecommendedLocations() {
       });
     }, index * 80); // 80ms delay between each marker
   });
-  
-  // Add legend
-  addLegend();
-}
-
-// Add a legend to the map
-function addLegend() {
-  const legend = document.createElement('div');
-  legend.style.backgroundColor = 'white';
-  legend.style.padding = '10px 15px';
-  legend.style.margin = '10px';
-  legend.style.borderRadius = '8px';
-  legend.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-  legend.style.fontFamily = 'Arial, sans-serif';
-  legend.style.fontSize = '14px';
-  
-  legend.innerHTML = `
-    <div style="font-weight: 600; margin-bottom: 8px; color: #2C5F7C;">Légende</div>
-    <div style="display: flex; align-items: center; margin-bottom: 5px;">
-      <span style="display: inline-block; width: 12px; height: 12px; background-color: #E8A598; border-radius: 50%; margin-right: 8px; border: 2px solid white;"></span>
-      <span>Restaurants</span>
-    </div>
-    <div style="display: flex; align-items: center;">
-      <span style="display: inline-block; width: 12px; height: 12px; background-color: #4A90A4; border-radius: 50%; margin-right: 8px; border: 2px solid white;"></span>
-      <span>Points d'intérêt</span>
-    </div>
-  `;
-  
-  map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend);
 }
 
 // Make initMap available globally for Google Maps callback
