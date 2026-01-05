@@ -33,7 +33,7 @@ async function fetchWeather() {
     console.error('Error fetching weather:', error);
     weatherElement.innerHTML = `
       <span class="weather-icon">🌤️</span>
-      <span class="weather-temp d-none d-md-inline">Pornichet</span>
+      <span class="weather-location">Pornichet</span>
     `;
     weatherElement.classList.add('weather-loaded');
   }
