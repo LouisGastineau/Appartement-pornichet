@@ -11,9 +11,10 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 - **🏠 Apartment Information**: Detailed information about the apartment amenities and features
 - **🏘️ Residence Details**: Information about the residential complex and shared facilities
 - **📋 House Rules**: Important guidelines for guests including noise regulations and plant watering etiquette
-- **🎨 Activities**: Local activities and attractions in the Pornichet area
+- **🎨 Activities**: Local activities, attractions, POIs, museums, sports rentals, and sea windmill visits
+- **🛒 Equipment**: Nearby commerces and services (shops, bakeries, markets, pharmacies)
 - **🍽️ Restaurants**: Recommendations for nearby dining options with interactive Google Maps
-- **🗺️ Interactive Map**: Google Maps integration showing recommended restaurants and POIs
+- **🗺️ Interactive Map**: Google Maps integration showing recommended restaurants
 - **🌤️ Weather Widget**: Real-time weather for Pornichet using Open-Meteo API
 - **📞 Contact**: Easy ways to get in touch with the property owner
 
@@ -69,7 +70,8 @@ The interactive map on the Restaurants page requires a Google Maps API key. See 
 - **appartement.html** - Apartment details and house rules
 - **residence.html** - Information about the residential complex
 - **regles.html** - Complete list of rules and regulations
-- **activities.html** - Local activities and attractions
+- **activities.html** - Local activities, attractions, POIs, museums, and sports equipment rentals
+- **equipement.html** - Commerces and services (shops, bakeries, markets, pharmacies)
 - **restaurants.html** - Restaurant recommendations with interactive Google Maps
 - **contact.html** - Contact information
 
