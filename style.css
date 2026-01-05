@@ -278,3 +278,21 @@ footer {
     margin-bottom: 0.5rem;
   }
 }
+
+/* Secret Door Easter Egg */
+.secret-door {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  opacity: 0.15;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  user-select: none;
+}
+
+.secret-door:hover {
+  opacity: 0.8;
+  transform: scale(1.2) rotate(5deg);
+}
