@@ -54,6 +54,21 @@ body {
   pointer-events: auto;
 }
 
+/* Add padding to navbar items to prevent logo overlap */
+.navbar-collapse .navbar-nav {
+  padding: 0 80px; /* Add padding to create space for center logo */
+}
+
+.navbar-collapse .navbar-nav:first-of-type {
+  padding-right: 80px;
+  padding-left: 0;
+}
+
+.navbar-collapse .navbar-nav:last-of-type {
+  padding-left: 80px;
+  padding-right: 0;
+}
+
 /* Mobile navbar adjustments */
 @media (max-width: 991.98px) {
   .navbar {
@@ -71,6 +86,7 @@ body {
     align-items: center;
     gap: 0.25rem;
     margin-top: 0.5rem;
+    padding: 0 !important; /* Remove padding on mobile */
   }
   
   .navbar-nav.flex-row {
