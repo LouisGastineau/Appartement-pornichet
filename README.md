@@ -70,7 +70,7 @@ The interactive map on the Restaurants page requires a Google Maps API key. See 
 - **residence.html** - Information about the residential complex
 - **regles.html** - Complete list of rules and regulations
 - **activities.html** - Local activities and attractions
-- **equipment.html** - Restaurant recommendations with interactive Google Maps
+- **restaurants.html** - Restaurant recommendations with interactive Google Maps
 - **contact.html** - Contact information
 
 ## Branding
