@@ -12,7 +12,9 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 - **🏘️ Residence Details**: Information about the residential complex and shared facilities
 - **📋 House Rules**: Important guidelines for guests including noise regulations and plant watering etiquette
 - **🎨 Activities**: Local activities and attractions in the Pornichet area
-- **🍽️ Restaurants**: Recommendations for nearby dining options
+- **🍽️ Restaurants**: Recommendations for nearby dining options with interactive Google Maps
+- **🗺️ Interactive Map**: Google Maps integration showing recommended restaurants and POIs
+- **🌤️ Weather Widget**: Real-time weather for Pornichet using Open-Meteo API
 - **📞 Contact**: Easy ways to get in touch with the property owner
 
 ## Screenshots
@@ -35,6 +37,8 @@ The apartment page provides important information about house rules, including:
 - **Bootstrap 5.3.3**: Responsive design framework for mobile-friendly layout
 - **CSS3**: Custom styling with `style.css`
 - **JavaScript**: Bootstrap's JavaScript bundle for interactive components
+- **Google Maps JavaScript API**: Interactive map with custom markers and info windows
+- **Open-Meteo API**: Free weather data (no API key required)
 
 ## How to View
 
@@ -50,6 +54,15 @@ npx http-server -p 8000
 
 Then navigate to `http://localhost:8000` in your browser.
 
+### Setting up Google Maps
+
+The interactive map on the Restaurants page requires a Google Maps API key. See [GOOGLE_MAPS_SETUP.md](GOOGLE_MAPS_SETUP.md) for detailed instructions on:
+- How to obtain a free Google Maps API key
+- How to configure and secure your API key
+- How to add it to the website
+
+**Note**: The map will show a placeholder until you add your API key.
+
 ## Pages
 
 - **index.html** - Homepage with welcome message and highlights
@@ -57,7 +70,7 @@ Then navigate to `http://localhost:8000` in your browser.
 - **residence.html** - Information about the residential complex
 - **regles.html** - Complete list of rules and regulations
 - **activities.html** - Local activities and attractions
-- **equipment.html** - Restaurant recommendations
+- **equipment.html** - Restaurant recommendations with interactive Google Maps
 - **contact.html** - Contact information
 
 ## Branding
