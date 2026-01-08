@@ -21,19 +21,23 @@ async function fetchWeather() {
     const weatherIcon = getWeatherIcon(current.weather_code);
     const temperature = Math.round(current.temperature_2m);
     
-    // Update the weather display
+    // Update the weather display with clickable link
     weatherElement.innerHTML = `
-      <span class="weather-icon">${weatherIcon}</span>
-      <span class="weather-temp">${temperature}°C</span>
-      <span class="weather-location d-none d-md-inline">Pornichet</span>
+      <a href="weather.html" class="weather-link">
+        <span class="weather-icon">${weatherIcon}</span>
+        <span class="weather-temp">${temperature}°C</span>
+        <span class="weather-location d-none d-md-inline">Pornichet</span>
+      </a>
     `;
     weatherElement.classList.add('weather-loaded');
     
   } catch (error) {
     console.error('Error fetching weather:', error);
     weatherElement.innerHTML = `
-      <span class="weather-icon">🌤️</span>
-      <span class="weather-location">Pornichet</span>
+      <a href="weather.html" class="weather-link">
+        <span class="weather-icon">🌤️</span>
+        <span class="weather-location">Pornichet</span>
+      </a>
     `;
     weatherElement.classList.add('weather-loaded');
   }

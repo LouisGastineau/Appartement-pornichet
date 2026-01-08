@@ -10,11 +10,33 @@
   --sunset-coral: #E8A598;
   --light-gray: #F5F5F5;
   --navbar-logo-spacing: 80px;
+  
+  /* Light mode specific */
+  --bg-color: #FFF9F0;
+  --text-color: #333;
+  --card-bg: white;
+  --section-border: #eee;
+}
+
+/* Dark Mode - Seaside Night Theme */
+body.dark-mode {
+  --bg-color: #0F1419;
+  --text-color: #E8E6E3;
+  --card-bg: #1A2332;
+  --section-border: #2A3F5F;
+  --coastal-blue: #5BA3BA;
+  --soft-sand: #D4C4A8;
+  --warm-white: #1A2332;
+  --sea-foam: #6B9B98;
+  --deep-ocean: #4A7A9C;
+  --sunset-coral: #D19587;
+  --light-gray: #2A3F5F;
 }
 
 body {
-  background-color: var(--warm-white);
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header styling with coastal colors */
@@ -199,7 +221,7 @@ body {
 /* Section styling */
 section {
   padding: 40px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--section-border);
 }
 
 section h2 {
@@ -210,7 +232,7 @@ section h2 {
 }
 
 section p, section li {
-  color: #555;
+  color: var(--text-color);
   line-height: 1.6;
 }
 
@@ -220,8 +242,12 @@ section p, section li {
   border: none;
   border-radius: 12px;
   overflow: hidden;
-  background: white;
+  background: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .card {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .card:hover {
@@ -305,6 +331,20 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.weather-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.weather-link:hover {
+  color: white;
+  opacity: 0.95;
+}
+
 .weather-icon {
   font-size: 1.2rem;
   line-height: 1;
@@ -318,6 +358,45 @@ footer {
 .weather-location {
   font-size: 0.85rem;
   opacity: 0.9;
+}
+
+/* Weather page specific styles */
+.weather-card-large {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 2rem;
+}
+
+.weather-icon-large {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+}
+
+.forecast-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(74, 144, 164, 0.2);
+}
+
+.forecast-icon {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.temp-max {
+  font-weight: 600;
+  color: var(--deep-ocean);
+}
+
+.temp-min {
+  color: #888;
 }
 
 /* Mobile weather adjustments */
@@ -344,4 +423,93 @@ footer {
 .secret-door:hover {
   opacity: 0.8;
   transform: scale(1.2) rotate(5deg);
+}
+
+/* Emergency Numbers Card - Clear but subtle */
+.emergency-card {
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.emergency-item {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.emergency-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.emergency-item strong {
+  display: block;
+  color: var(--deep-ocean);
+  margin-bottom: 0.25rem;
+}
+
+.emergency-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .dark-mode-toggle {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode accordion styling */
+body.dark-mode .accordion-item {
+  background-color: var(--card-bg);
+  border-color: var(--section-border);
+}
+
+body.dark-mode .accordion-button {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+body.dark-mode .accordion-button:not(.collapsed) {
+  background-color: var(--deep-ocean);
+  color: white;
+}
+
+body.dark-mode .accordion-body {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Dark mode banner overlay */
+body.dark-mode .banner::before {
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.6) 0%, rgba(26, 35, 50, 0.5) 100%);
+}
+
+/* Dark mode emergency card */
+body.dark-mode .emergency-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, #1F2D3D 100%);
 }
