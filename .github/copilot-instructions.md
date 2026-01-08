@@ -78,8 +78,10 @@ This is a static website for "Fleur de thé" (C301), a vacation rental apartment
 - Manual testing by opening HTML files in a browser
 - Use local server for development:
   ```bash
+  # Using Python (built-in, no installation required)
   python3 -m http.server 8000
-  # or
+  
+  # Using Node.js http-server (requires Node.js installed)
   npx http-server -p 8000
   ```
 - Test in multiple browsers (Chrome, Firefox, Safari, Edge)
@@ -98,8 +100,10 @@ This is a static website for "Fleur de thé" (C301), a vacation rental apartment
 2. Include Bootstrap CSS and `style.css`
 3. Add navigation links to header
 4. Include dark mode and weather scripts at bottom
-5. Update navigation in all other pages
+5. Update navigation in all existing HTML pages (index.html, appartement.html, residence.html, regles.html, activities.html, equipement.html, se-nourrir.html, contact.html)
 6. Add page description to README.md
+
+Note: Maintaining navigation consistency across pages requires updating multiple files. Consider this maintenance burden when adding new pages.
 
 ### Modifying the Header
 - Header structure is consistent across all pages
