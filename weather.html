@@ -75,6 +75,20 @@
       </div>
     </section>
 
+    <!-- Tide Information -->
+    <section class="mb-5">
+      <h2 class="mb-3">🌊 Marées</h2>
+      <div class="card">
+        <div class="card-body" id="tide-info">
+          <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Chargement...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Additional Info -->
     <section class="mb-5">
       <h2 class="mb-3">Informations complémentaires</h2>
@@ -183,6 +197,9 @@
         // Display additional info
         displayAdditionalInfo(data.current);
         
+        // Load tide information
+        loadTideData();
+        
       } catch (error) {
         console.error('Error fetching weather:', error);
         document.getElementById('current-weather').innerHTML = `
@@ -274,6 +291,104 @@
           </div>
         </div>
       `;
+    }
+
+    async function loadTideData() {
+      try {
+        // Using Open-Meteo Marine API for ocean conditions near Pornichet
+        // This provides wave data (height, period, direction) which is useful for beach activities
+        // For detailed tide schedules, users should consult maree.info
+        const response = await fetch(
+          'https://marine-api.open-meteo.com/v1/marine?latitude=47.26&longitude=-2.34&daily=wave_height_max,wave_period_max,wave_direction_dominant&timezone=Europe%2FParis&forecast_days=7'
+        );
+        
+        if (!response.ok) {
+          throw new Error('Marine data unavailable');
+        }
+        
+        const data = await response.json();
+        displayTideInfo(data.daily);
+        
+      } catch (error) {
+        console.error('Error fetching tide data:', error);
+        document.getElementById('tide-info').innerHTML = `
+          <div class="text-center">
+            <p class="text-muted">Les informations sur les conditions marines sont temporairement indisponibles.</p>
+            <p class="small text-muted">Consultez <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer">maree.info</a> pour les horaires de marée détaillés.</p>
+          </div>
+        `;
+      }
+    }
+
+    function displayTideInfo(daily) {
+      const container = document.getElementById('tide-info');
+      const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+      
+      let html = `
+        <div class="mb-3">
+          <p class="lead mb-3">Conditions marines et état de la mer pour Pornichet</p>
+          <p class="small text-muted mb-4">
+            Pour les horaires exacts de marée, consultez 
+            <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer">maree.info - Pornichet</a>
+          </p>
+        </div>
+        <div class="row g-3">
+      `;
+      
+      // Display next 7 days of marine conditions
+      for (let i = 0; i < 7; i++) {
+        const date = new Date(daily.time[i]);
+        const dayName = i === 0 ? "Aujourd'hui" : days[date.getDay()];
+        // Use 0 as fallback for missing data (represents calm/unavailable conditions)
+        const waveHeight = daily.wave_height_max[i] ?? 0;
+        const wavePeriod = daily.wave_period_max[i] ?? 0;
+        const waveDir = daily.wave_direction_dominant[i] ?? 0;
+        
+        // Convert wave direction to cardinal points
+        const directions = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
+        const dirIndex = Math.round(waveDir / 45) % 8;
+        const waveDirection = directions[dirIndex];
+        
+        // Determine sea conditions
+        let seaCondition = '';
+        let seaEmoji = '';
+        if (waveHeight < 0.5) {
+          seaCondition = 'Calme';
+          seaEmoji = '😌';
+        } else if (waveHeight < 1.0) {
+          seaCondition = 'Peu agitée';
+          seaEmoji = '🌊';
+        } else if (waveHeight < 2.0) {
+          seaCondition = 'Agitée';
+          seaEmoji = '🌊🌊';
+        } else {
+          seaCondition = 'Forte';
+          seaEmoji = '⚠️';
+        }
+        
+        html += `
+          <div class="col-md-6 col-lg-4">
+            <div class="card tide-card">
+              <div class="card-body text-center">
+                <h5 class="card-title mb-3">${dayName}</h5>
+                <div class="mb-2">
+                  <span class="sea-emoji">${seaEmoji}</span>
+                </div>
+                <p class="mb-1"><strong>${seaCondition}</strong></p>
+                <p class="small text-muted mb-2">Hauteur max: ${waveHeight.toFixed(1)}m</p>
+                <p class="small text-muted mb-1">Période: ${wavePeriod.toFixed(1)}s</p>
+                <p class="small text-muted">Direction: ${waveDirection}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      html += `
+        </div>
+      `;
+      
+      container.innerHTML = html;
     }
 
     // Load weather data when page loads
