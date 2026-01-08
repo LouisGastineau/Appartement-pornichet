@@ -12,46 +12,36 @@
 <body>
   <!-- If you're reading this, hi 👋 hope you like the apartment -->
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-  <div class="container position-relative">
-
-    <!-- Mobile toggler (left) -->
-    <button class="navbar-toggler position-relative z-3" type="button"
-      data-bs-toggle="collapse" data-bs-target="#navbarSplit"
-      aria-controls="navbarSplit" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <a class="navbar-brand center-brand fw-bold text-center" href="index.html">
-      <img src="public/img/logo_fleur_de_the.png">
-    </a>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse justify-content-between" id="navbarSplit">
-      <!-- Left side -->
-      <ul class="navbar-nav flex-row gap-3">
-        <li class="nav-item"><a class="nav-link" href="appartement.html">L'appartement</a></li>
-        <li class="nav-item"><a class="nav-link" href="residence.html">La résidence</a></li>
-        <li class="nav-item"><a class="nav-link" href="regles.html">Règles</a></li>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="header-nav">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation">
+        <span class="hamburger-icon"></span>
+      </button>
+      
+      <ul class="nav-list nav-left">
+        <li><a href="appartement.html">L'appartement</a></li>
+        <li><a href="residence.html">La résidence</a></li>
+        <li><a href="regles.html">Règles</a></li>
       </ul>
-
-      <!-- Right side -->
-      <ul class="navbar-nav flex-row gap-3">
-        <li class="nav-item"><a class="nav-link" href="activities.html">Activités</a></li>
-        <li class="nav-item"><a class="nav-link" href="equipement.html">Équipement</a></li>
-        <li class="nav-item"><a class="nav-link" href="se-nourrir.html">Se nourrir</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contacts</a></li>
-        <li class="nav-item d-flex align-items-center">
+      
+      <a href="index.html" class="logo-link">
+        <img src="public/img/logo_fleur_de_the.png" alt="Fleur de thé" class="logo-img">
+      </a>
+      
+      <ul class="nav-list nav-right">
+        <li><a href="activities.html">Activités</a></li>
+        <li><a href="equipement.html">Équipement</a></li>
+        <li><a href="se-nourrir.html">Se nourrir</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li class="weather-item">
           <div id="weather-display" class="weather-bar">
             <span class="weather-icon">⏳</span>
           </div>
         </li>
       </ul>
-    </div>
-
-  </div>
-</nav>
+    </nav>
+  </header>
 
 
 <section class="py-5 border-bottom">
@@ -151,6 +141,13 @@
   <script src="weather.js"></script>
   <script>
     console.log("Welcome! No bugs here, only good vibes :3");
+  </script>
+  <!-- Mobile menu toggle -->
+  <script>
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      document.querySelector('.nav-left').classList.toggle('active');
+      document.querySelector('.nav-right').classList.toggle('active');
+    });
   </script>
 </body>
 </html>

@@ -17,93 +17,142 @@ body {
   color: #333;
 }
 
-/* Navbar styling with coastal colors */
-.navbar {
-  min-height: 70px;
-  background: linear-gradient(135deg, var(--coastal-blue) 0%, var(--sea-foam) 100%) !important;
+/* Header styling with coastal colors */
+.site-header {
+  background: linear-gradient(135deg, var(--coastal-blue) 0%, var(--sea-foam) 100%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: white !important;
-  font-weight: 500;
-  transition: all 0.3s ease;
   padding: 0.5rem 1rem;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-  color: var(--soft-sand) !important;
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Navigation lists */
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-left {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-right {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+/* Logo in the center */
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Navigation links */
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.nav-list a:hover {
+  color: var(--soft-sand);
   transform: translateY(-2px);
 }
 
-/* Center the brand logo */
-.center-brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  pointer-events: none;
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1;
 }
 
-.center-brand img {
-  height: 60px;   /* Reduced from 150px for better fit */
-  width: auto;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-  pointer-events: auto;
+.hamburger-icon {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  position: relative;
 }
 
-/* Ensure navbar is always expanded on desktop */
-@media (min-width: 992px) {
-  .navbar-collapse {
-    display: flex !important;
-    flex-basis: auto;
-    justify-content: space-between !important;
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  position: relative;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  top: 6px;
+}
+
+/* Mobile responsive design */
+@media (max-width: 991px) {
+  .mobile-menu-toggle {
+    display: block;
   }
   
-  .navbar-collapse .navbar-nav {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-  }
-}
-
-/* Add padding to navbar items to prevent logo overlap */
-.navbar-collapse .navbar-nav:first-of-type {
-  padding-right: var(--navbar-logo-spacing);
-  padding-left: 0;
-}
-
-.navbar-collapse .navbar-nav:last-of-type {
-  padding-left: var(--navbar-logo-spacing);
-  padding-right: 0;
-}
-
-/* Mobile navbar adjustments */
-@media (max-width: 991.98px) {
-  .navbar {
-    min-height: 60px;
+  .header-nav {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   
-  .center-brand {
-    position: static;
-    transform: none;
+  .nav-list {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+  
+  .nav-list.active {
+    display: flex;
+  }
+  
+  .nav-left,
+  .nav-right {
+    justify-content: center;
+  }
+  
+  .logo-link {
+    order: -1;
     margin: 0 auto;
   }
   
-  .navbar-collapse .navbar-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    margin-top: 0.5rem;
-    padding: 0 !important; /* Remove padding on mobile */
-  }
-  
-  .navbar-nav.flex-row {
-    flex-direction: column;
-    margin-bottom: 1rem;
+  .nav-list a {
+    text-align: center;
+    width: 100%;
   }
 }
 
