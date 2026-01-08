@@ -399,6 +399,25 @@ footer {
   color: #888;
 }
 
+/* Tide cards styling */
+.tide-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, rgba(74, 144, 164, 0.05) 0%, rgba(140, 188, 185, 0.05) 100%);
+}
+
+.tide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(74, 144, 164, 0.2);
+}
+
+.sea-emoji {
+  font-size: 3rem;
+  display: inline-block;
+}
+
 /* Mobile weather adjustments */
 @media (max-width: 991.98px) {
   .weather-bar {
