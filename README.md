@@ -15,8 +15,8 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 - **🛒 Equipment**: Nearby commerces and services (shops, bakeries, markets, pharmacies)
 - **🍽️ Se nourrir**: Restaurants, bakeries, and markets with interactive Google Maps
 - **🗺️ Interactive Map**: Google Maps integration showing recommended restaurants and food locations
-- **🌤️ Weather Widget**: Real-time weather for Pornichet using Open-Meteo API displayed in the navigation bar
-- **☀️ Weather Page**: Comprehensive weather page with current conditions, 7-day forecast, marine/tide conditions, and additional weather details
+- **🌤️ Weather Widget**: Quick-access real-time weather display in the navigation bar using Open-Meteo API
+- **☀️ Weather Page**: Dedicated page with comprehensive weather information including current conditions, 7-day forecast, marine/tide conditions, wind, and humidity details
 - **🌙 Dark Mode**: Toggle between light and dark themes with persistent preference storage
 - **📞 Contact**: Easy ways to get in touch with the property owner
 
