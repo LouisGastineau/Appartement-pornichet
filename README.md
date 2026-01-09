@@ -25,7 +25,12 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 ### Homepage
 ![Homepage Screenshot](screenshots/homepage-screenshot.png)
 
-The homepage welcomes visitors with a beautiful banner featuring Pornichet's beach and marina, along with the tagline "Bienvenue à Pornichet! - Votre séjour confortable à deux pas de la plage" (Welcome to Pornichet! - Your comfortable stay just steps from the beach). The page highlights the apartment's key features including proximity to the beach, peaceful residence, and ideal location.
+The homepage welcomes visitors with a beautiful banner featuring Pornichet's beach and marina, along with the tagline "Bienvenue à Pornichet! - Votre séjour confortable à deux pas de la plage" (Welcome to Pornichet! - Your comfortable stay just steps from the beach).
+
+Key features highlighted:
+- 🏖️ Proximity to the beach (10 minutes walk)
+- 🏡 Peaceful and secure residence
+- 🚗 Ideal location near shops and restaurants
 
 ### Apartment Page
 ![Apartment Screenshot](screenshots/appartement-screenshot.png)
