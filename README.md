@@ -25,14 +25,36 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 ### Homepage
 ![Homepage Screenshot](screenshots/homepage-screenshot.png)
 
-The homepage welcomes visitors with a beautiful banner featuring Pornichet's beach and marina, along with the tagline "Bienvenue à Pornichet! - Votre séjour confortable à 10 minutes de la plage" (Welcome to Pornichet! - Your comfortable stay 10 minutes from the beach).
+The homepage welcomes visitors with a beautiful banner featuring Pornichet's beach and marina, along with the tagline "Bienvenue à Pornichet! - Votre séjour confortable à deux pas de la plage" (Welcome to Pornichet! - Your comfortable stay just steps from the beach). The page highlights the apartment's key features including proximity to the beach, peaceful residence, and ideal location.
 
-### Apartment & Rules Page
-![Apartment Rules Screenshot](screenshots/appartement-screenshot.png)
+### Apartment Page
+![Apartment Screenshot](screenshots/appartement-screenshot.png)
 
-The apartment page provides important information about house rules, including:
-- **Noise regulations** (🎵): Guidelines for maintaining a peaceful environment for all residents
-- **Plant watering guidelines** (🌿): Best practices for watering plants on balconies and terraces
+The apartment page provides detailed information about the rental property, including:
+- **Apartment features** (🏠): Details about the 60m² apartment with 2 spacious bedrooms, equipped kitchen, and modern amenities
+- **Equipment and services** (🛋️): Information about provided amenities like quality bedding, washing machine, private parking, and furnished balcony
+- **Competitive rates** (💰): Seasonal pricing information
+- **Fun Easter egg** (🚪): A playful hidden "secret room" feature for entertainment
+
+### Activities Page
+![Activities Screenshot](screenshots/activities-screenshot.png)
+
+The activities page showcases local attractions and things to do in Pornichet:
+- **Water activities and beaches** (🏖️): Information about the 3km of fine sand beaches, supervised swimming, sailing courses, and beach clubs
+- **Discovery and culture** (🎨): Local markets, coastal trails, nearby attractions like La Baule and Brière Natural Park
+- **Points of interest** (🗺️): Marina, beaches, Saint-Nazaire offshore wind farm, and local heritage sites
+- **Sports equipment rental** (🏄): Information about bike, surfboard, kayak, and diving equipment rentals
+- **Interactive map**: Google Maps integration showing beaches, sports activities, and points of interest with color-coded markers
+
+### Weather Page
+![Weather Screenshot](screenshots/weather-screenshot.png)
+
+The dedicated weather page provides comprehensive meteorological information for Pornichet:
+- **Current weather** (🌤️): Real-time temperature, conditions, and weather description
+- **7-day forecast**: Extended weather predictions to help plan your stay
+- **Tide information** (🌊): Marine conditions and tide schedules
+- **Additional details**: Wind speed, humidity, and other meteorological data
+- **Quick access**: Also available as a widget in the navigation bar on all pages
 
 ## Technology Stack
 
