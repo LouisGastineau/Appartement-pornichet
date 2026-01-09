@@ -15,7 +15,9 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 - **🛒 Equipment**: Nearby commerces and services (shops, bakeries, markets, pharmacies)
 - **🍽️ Se nourrir**: Restaurants, bakeries, and markets with interactive Google Maps
 - **🗺️ Interactive Map**: Google Maps integration showing recommended restaurants and food locations
-- **🌤️ Weather Widget**: Real-time weather for Pornichet using Open-Meteo API
+- **🌤️ Weather Widget**: Real-time weather for Pornichet using Open-Meteo API displayed in the navigation bar
+- **☀️ Weather Page**: Comprehensive weather page with current conditions, 7-day forecast, marine/tide conditions, and additional weather details
+- **🌙 Dark Mode**: Toggle between light and dark themes with persistent preference storage
 - **📞 Contact**: Easy ways to get in touch with the property owner
 
 ## Screenshots
@@ -36,10 +38,15 @@ The apartment page provides important information about house rules, including:
 
 - **HTML5**: Semantic markup for the website structure
 - **Bootstrap 5.3.3**: Responsive design framework for mobile-friendly layout
-- **CSS3**: Custom styling with `style.css`
-- **JavaScript**: Bootstrap's JavaScript bundle for interactive components
+- **CSS3**: Custom styling with `style.css` featuring coastal theme with CSS variables for light/dark modes
+- **JavaScript**: Vanilla JavaScript for interactive features
+  - Bootstrap's JavaScript bundle for responsive components
+  - Custom dark mode toggle (`dark-mode.js`) with localStorage persistence
+  - Weather widget integration (`weather.js`)
+  - Interactive map functionality (`map.js`, `activities-map.js`)
 - **Google Maps JavaScript API**: Interactive map with custom markers and info windows
 - **Open-Meteo API**: Free weather data (no API key required)
+- **Open-Meteo Marine API**: Ocean/wave conditions and marine data
 
 ## How to View
 
@@ -73,6 +80,7 @@ The interactive map on the Restaurants page requires a Google Maps API key. See 
 - **activities.html** - Local activities, attractions, POIs, museums, and sports equipment rentals
 - **equipement.html** - Commerces and services (shops, bakeries, markets, pharmacies)
 - **se-nourrir.html** - Restaurants, bakeries, and markets with interactive Google Maps
+- **weather.html** - Detailed weather page with current conditions, 7-day forecast, marine conditions, and additional weather information
 - **contact.html** - Contact information
 
 ## Branding
