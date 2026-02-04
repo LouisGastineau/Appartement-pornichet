@@ -43,65 +43,68 @@
   </header>
 
   <!-- Main Content -->
-  <div class="container my-5">
-    <section class="mb-5">
-      <h1 class="mb-4">🌤️ Météo à Pornichet</h1>
-      <p class="lead">Planifiez votre journée avec les prévisions météorologiques détaillées pour Pornichet.</p>
+  <div class="container my-4">
+    <section class="mb-4">
+      <h1 class="mb-3">🌤️ Météo à Pornichet</h1>
+      <p class="lead">Planifiez votre journée avec les prévisions météorologiques.</p>
     </section>
 
-    <!-- Current Weather -->
-    <section class="mb-5">
-      <h2 class="mb-3">Météo actuelle</h2>
-      <div class="card weather-card-large">
-        <div class="card-body" id="current-weather">
-          <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Chargement...</span>
+    <!-- Today's Weather Dashboard - Square Card Left, Tips Right -->
+    <div class="row g-3 mb-4">
+      <!-- Current Weather Card - Square -->
+      <div class="col-md-4">
+        <div class="card weather-dashboard-card weather-square-card">
+          <div class="card-body" id="current-weather">
+            <div class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Chargement...</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 7-Day Forecast -->
-    <section class="mb-5">
-      <h2 class="mb-3">Prévisions sur 7 jours</h2>
-      <div id="forecast-container" class="row g-3">
-        <div class="col-12 text-center">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Chargement...</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tide Information -->
-    <section class="mb-5">
-      <h2 class="mb-3">🌊 Marées</h2>
-      <div class="card">
-        <div class="card-body" id="tide-info">
-          <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Chargement...</span>
+      <!-- Weather Advice Card -->
+      <div class="col-md-8">
+        <div class="card weather-dashboard-card">
+          <div class="card-body" id="weather-advice">
+            <div class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Chargement...</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Additional Info -->
-    <section class="mb-5">
-      <h2 class="mb-3">Informations complémentaires</h2>
-      <div class="card">
-        <div class="card-body" id="additional-info">
-          <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Chargement...</span>
+    <!-- 6-Day Forecast - Full Width Horizontal Card -->
+    <div class="mb-4">
+      <h2 class="h5 mb-3">Prévisions sur 6 jours</h2>
+      <div class="card weather-forecast-horizontal">
+        <div class="card-body p-2">
+          <div id="forecast-container" class="d-flex justify-content-between align-items-center flex-wrap">
+            <div class="text-center p-2">
+              <div class="spinner-border spinner-border-sm text-primary" role="status">
+                <span class="visually-hidden">Chargement...</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Tide Information Link - Compact -->
+    <div class="mb-4">
+      <div class="card tide-link-card">
+        <div class="card-body text-center py-2">
+          <span class="small">🌊 Marées : </span>
+          <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            Voir les horaires
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -188,17 +191,14 @@
         
         const data = await response.json();
         
-        // Display current weather
-        displayCurrentWeather(data.current);
+        // Display current weather (today)
+        displayCurrentWeather(data.current, data.daily);
         
-        // Display 7-day forecast
+        // Display weather advice based on today's weather
+        displayWeatherAdvice(data.current, data.daily);
+        
+        // Display 6-day forecast (skip today, show days 1-6)
         displayForecast(data.daily);
-        
-        // Display additional info
-        displayAdditionalInfo(data.current);
-        
-        // Load tide information
-        loadTideData();
         
       } catch (error) {
         console.error('Error fetching weather:', error);
@@ -208,24 +208,37 @@
         document.getElementById('forecast-container').innerHTML = `
           <p class="text-center text-danger">Impossible de charger les prévisions.</p>
         `;
-        document.getElementById('additional-info').innerHTML = `
-          <p class="text-center text-danger">Impossible de charger les informations.</p>
+        document.getElementById('weather-advice').innerHTML = `
+          <p class="text-center text-danger">Impossible de charger les conseils.</p>
         `;
       }
     }
 
-    function displayCurrentWeather(current) {
+    function displayCurrentWeather(current, daily) {
       const icon = getWeatherIcon(current.weather_code);
       const description = getWeatherDescription(current.weather_code);
       const temp = Math.round(current.temperature_2m);
       const feelsLike = Math.round(current.apparent_temperature);
+      const maxTemp = Math.round(daily.temperature_2m_max[0]);
+      const minTemp = Math.round(daily.temperature_2m_min[0]);
+      const windSpeed = Math.round(current.wind_speed_10m);
+      const humidity = current.relative_humidity_2m;
       
       document.getElementById('current-weather').innerHTML = `
+        <h5 class="mb-3">Aujourd'hui</h5>
         <div class="text-center">
-          <div class="weather-icon-large">${icon}</div>
-          <h2 class="display-3 mb-2">${temp}°C</h2>
-          <p class="lead mb-2">${description}</p>
-          <p class="text-muted">Ressenti: ${feelsLike}°C</p>
+          <div class="weather-icon-dashboard">${icon}</div>
+          <h2 class="display-4 mb-2">${temp}°C</h2>
+          <p class="mb-2"><strong>${description}</strong></p>
+          <p class="text-muted small mb-2">Ressenti: ${feelsLike}°C</p>
+          <div class="d-flex justify-content-around mt-3 text-muted small">
+            <div><span>Max: ${maxTemp}°C</span></div>
+            <div><span>Min: ${minTemp}°C</span></div>
+          </div>
+          <div class="d-flex justify-content-around mt-2 text-muted small">
+            <div>💨 ${windSpeed} km/h</div>
+            <div>💧 ${humidity}%</div>
+          </div>
         </div>
       `;
     }
@@ -235,26 +248,24 @@
       const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
       
       let html = '';
-      for (let i = 0; i < 7; i++) {
+      // Skip today (i=0), show next 6 days (i=1 to i=6)
+      for (let i = 1; i <= 6; i++) {
         const date = new Date(daily.time[i]);
-        const dayName = i === 0 ? "Aujourd'hui" : days[date.getDay()];
+        const dayName = days[date.getDay()];
         const icon = getWeatherIcon(daily.weather_code[i]);
         const maxTemp = Math.round(daily.temperature_2m_max[i]);
         const minTemp = Math.round(daily.temperature_2m_min[i]);
         const precipProb = daily.precipitation_probability_max[i];
         
         html += `
-          <div class="col-md-6 col-lg-4">
-            <div class="card forecast-card">
-              <div class="card-body text-center">
-                <h5 class="card-title">${dayName}</h5>
-                <div class="forecast-icon">${icon}</div>
-                <p class="mb-1">
-                  <span class="temp-max">${maxTemp}°C</span> / 
-                  <span class="temp-min">${minTemp}°C</span>
-                </p>
-                ${precipProb > 0 ? `<p class="text-muted small">💧 ${precipProb}%</p>` : ''}
-              </div>
+          <div class="forecast-day-item text-center">
+            <div class="small mb-1"><strong>${dayName}</strong></div>
+            <div class="forecast-icon-small mb-1">${icon}</div>
+            <div class="small mb-1">
+              <span class="temp-max">${maxTemp}°</span><span class="text-muted">/</span><span class="temp-min text-muted">${minTemp}°</span>
+            </div>
+            <div class="text-muted forecast-precip-text">
+              ${precipProb > 0 ? `💧 ${precipProb}%` : '&nbsp;'}
             </div>
           </div>
         `;
@@ -263,132 +274,84 @@
       container.innerHTML = html;
     }
 
-    function displayAdditionalInfo(current) {
+    function displayWeatherAdvice(current, daily) {
+      const temp = Math.round(current.temperature_2m);
+      const weatherCode = current.weather_code;
+      const precipProb = daily.precipitation_probability_max[0];
       const windSpeed = Math.round(current.wind_speed_10m);
-      const windDir = current.wind_direction_10m;
-      const humidity = current.relative_humidity_2m;
       
-      // Convert wind direction to cardinal points
-      const directions = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
-      const dirIndex = Math.round(windDir / 45) % 8;
-      const windDirection = directions[dirIndex];
+      // Temperature and weather thresholds
+      const TEMP_COLD = 10;
+      const TEMP_HOT = 25;
+      const TEMP_NICE_MIN = 15;
+      const TEMP_SUNNY = 20;
+      const WIND_STRONG = 30;
+      const PRECIP_LIKELY = 50;
+      const WEATHER_CLEAR_SKY = 0;
+      const WEATHER_MAINLY_CLEAR = 3;
       
-      document.getElementById('additional-info').innerHTML = `
-        <div class="row text-center">
-          <div class="col-md-4 mb-3">
-            <h5>💨 Vent</h5>
-            <p class="mb-0">${windSpeed} km/h</p>
-            <p class="text-muted small">Direction: ${windDirection}</p>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>💧 Humidité</h5>
-            <p class="mb-0">${humidity}%</p>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>📍 Localisation</h5>
-            <p class="mb-0">Pornichet</p>
-            <p class="text-muted small">Loire-Atlantique</p>
-          </div>
-        </div>
-      `;
-    }
-
-    async function loadTideData() {
-      try {
-        // Using Open-Meteo Marine API for ocean conditions near Pornichet
-        // This provides wave data (height, period, direction) which is useful for beach activities
-        // For detailed tide schedules, users should consult maree.info
-        const response = await fetch(
-          'https://marine-api.open-meteo.com/v1/marine?latitude=47.26&longitude=-2.34&daily=wave_height_max,wave_period_max,wave_direction_dominant&timezone=Europe%2FParis&forecast_days=7'
-        );
-        
-        if (!response.ok) {
-          throw new Error('Marine data unavailable');
-        }
-        
-        const data = await response.json();
-        displayTideInfo(data.daily);
-        
-      } catch (error) {
-        console.error('Error fetching tide data:', error);
-        document.getElementById('tide-info').innerHTML = `
-          <div class="text-center">
-            <p class="text-muted">Les informations sur les conditions marines sont temporairement indisponibles.</p>
-            <p class="small text-muted">Consultez <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer">maree.info</a> pour les horaires de marée détaillés.</p>
-          </div>
-        `;
-      }
-    }
-
-    function displayTideInfo(daily) {
-      const container = document.getElementById('tide-info');
-      const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+      // Weather code ranges (WMO codes)
+      const WEATHER_DRIZZLE_START = 51;
+      const WEATHER_RAIN_END = 70;
+      const WEATHER_SNOW_START = 71;
+      const WEATHER_SNOW_END = 86;
+      const WEATHER_RAIN_SHOWERS_START = 80;
+      const WEATHER_RAIN_SHOWERS_END = 82;
       
-      let html = `
-        <div class="mb-3">
-          <p class="lead mb-3">Conditions marines et état de la mer pour Pornichet</p>
-          <p class="small text-muted mb-4">
-            Pour les horaires exacts de marée, consultez 
-            <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer">maree.info - Pornichet</a>
-          </p>
-        </div>
-        <div class="row g-3">
-      `;
+      let advice = '';
+      let adviceIcon = '';
+      let adviceColor = '';
       
-      // Display next 7 days of marine conditions
-      for (let i = 0; i < 7; i++) {
-        const date = new Date(daily.time[i]);
-        const dayName = i === 0 ? "Aujourd'hui" : days[date.getDay()];
-        // Use 0 as fallback for missing data (represents calm/unavailable conditions)
-        const waveHeight = daily.wave_height_max[i] ?? 0;
-        const wavePeriod = daily.wave_period_max[i] ?? 0;
-        const waveDir = daily.wave_direction_dominant[i] ?? 0;
-        
-        // Convert wave direction to cardinal points
-        const directions = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
-        const dirIndex = Math.round(waveDir / 45) % 8;
-        const waveDirection = directions[dirIndex];
-        
-        // Determine sea conditions
-        let seaCondition = '';
-        let seaEmoji = '';
-        if (waveHeight < 0.5) {
-          seaCondition = 'Calme';
-          seaEmoji = '😌';
-        } else if (waveHeight < 1.0) {
-          seaCondition = 'Peu agitée';
-          seaEmoji = '🌊';
-        } else if (waveHeight < 2.0) {
-          seaCondition = 'Agitée';
-          seaEmoji = '🌊🌊';
-        } else {
-          seaCondition = 'Forte';
-          seaEmoji = '⚠️';
-        }
-        
-        html += `
-          <div class="col-md-6 col-lg-4">
-            <div class="card tide-card">
-              <div class="card-body text-center">
-                <h5 class="card-title mb-3">${dayName}</h5>
-                <div class="mb-2">
-                  <span class="sea-emoji">${seaEmoji}</span>
-                </div>
-                <p class="mb-1"><strong>${seaCondition}</strong></p>
-                <p class="small text-muted mb-2">Hauteur max: ${waveHeight.toFixed(1)}m</p>
-                <p class="small text-muted mb-1">Période: ${wavePeriod.toFixed(1)}s</p>
-                <p class="small text-muted">Direction: ${waveDirection}</p>
-              </div>
-            </div>
-          </div>
-        `;
+      // Determine advice based on weather conditions (check in priority order)
+      if (weatherCode >= WEATHER_SNOW_START && weatherCode <= WEATHER_SNOW_END) {
+        // Snowy conditions (codes 71-86: snow fall and snow showers)
+        advice = "Préparez-vous pour la neige ! Habillez-vous chaudement.";
+        adviceIcon = '🧥';
+        adviceColor = 'text-info';
+      } else if ((weatherCode >= WEATHER_DRIZZLE_START && weatherCode <= WEATHER_RAIN_END) || (weatherCode >= WEATHER_RAIN_SHOWERS_START && weatherCode <= WEATHER_RAIN_SHOWERS_END)) {
+        // Rainy conditions (codes 51-70: drizzle and rain, 80-82: rain showers, excluding snow 71-77)
+        advice = "N'oubliez pas votre parapluie !";
+        adviceIcon = '☔';
+        adviceColor = 'text-primary';
+      } else if (temp >= TEMP_HOT || (weatherCode <= WEATHER_MAINLY_CLEAR && temp >= TEMP_SUNNY)) {
+        // Hot/sunny weather (hot temp or mainly clear sky with warm temp)
+        advice = "N'oubliez pas la crème solaire !";
+        adviceIcon = '🧴';
+        adviceColor = 'text-warning';
+      } else if (temp < TEMP_COLD) {
+        // Cold weather
+        advice = "Pensez à prendre un manteau !";
+        adviceIcon = '🧥';
+        adviceColor = 'text-info';
+      } else if (windSpeed > WIND_STRONG) {
+        // Windy conditions
+        advice = "Attention au vent fort aujourd'hui !";
+        adviceIcon = '💨';
+        adviceColor = 'text-secondary';
+      } else if (precipProb > PRECIP_LIKELY) {
+        // High precipitation probability
+        advice = "Des averses sont possibles, prenez un parapluie !";
+        adviceIcon = '☔';
+        adviceColor = 'text-primary';
+      } else if (temp >= TEMP_NICE_MIN && temp < TEMP_HOT && weatherCode <= WEATHER_MAINLY_CLEAR) {
+        // Nice weather (clear to mainly clear sky)
+        advice = "Temps idéal pour profiter de la plage !";
+        adviceIcon = '🏖️';
+        adviceColor = 'text-success';
+      } else {
+        // Default advice
+        advice = "Bonne journée à Pornichet !";
+        adviceIcon = '😊';
+        adviceColor = 'text-success';
       }
       
-      html += `
+      document.getElementById('weather-advice').innerHTML = `
+        <h5 class="mb-3">Conseils du jour</h5>
+        <div class="text-center">
+          <div class="advice-icon mb-3">${adviceIcon}</div>
+          <p class="lead ${adviceColor} mb-0">${advice}</p>
         </div>
       `;
-      
-      container.innerHTML = html;
     }
 
     // Load weather data when page loads
