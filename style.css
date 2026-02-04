@@ -419,10 +419,7 @@ body.dark-mode .weather-forecast-horizontal {
 
 .forecast-precip-text {
   font-size: 0.75rem;
-}
-
-.forecast-precip-spacer {
-  height: 1rem;
+  min-height: 1rem;
 }
 
 .weather-icon-large {

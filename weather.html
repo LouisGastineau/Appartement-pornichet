@@ -265,7 +265,9 @@
             <div class="small mb-1">
               <span class="temp-max">${maxTemp}°</span><span class="text-muted">/</span><span class="temp-min text-muted">${minTemp}°</span>
             </div>
-            ${precipProb > 0 ? `<div class="text-muted forecast-precip-text">💧 ${precipProb}%</div>` : '<div class="forecast-precip-spacer"></div>'}
+            <div class="text-muted forecast-precip-text">
+              ${precipProb > 0 ? `💧 ${precipProb}%` : '&nbsp;'}
+            </div>
           </div>
         `;
       }
@@ -304,8 +306,8 @@
         advice = "N'oubliez pas votre parapluie !";
         adviceIcon = '☔';
         adviceColor = 'text-primary';
-      } else if (temp >= TEMP_HOT || (weatherCode === WEATHER_CLEAR_SKY && temp >= TEMP_SUNNY)) {
-        // Hot/sunny weather
+      } else if (temp >= TEMP_HOT || (weatherCode <= WEATHER_MAINLY_CLEAR && temp >= TEMP_SUNNY)) {
+        // Hot/sunny weather (hot temp or mainly clear sky with warm temp)
         advice = "N'oubliez pas la crème solaire !";
         adviceIcon = '🧴';
         adviceColor = 'text-warning';
