@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* Map container styling */
-    #activities-map {
+    #activities-map iframe {
       height: 500px;
       width: 100%;
       border-radius: 12px;
@@ -18,7 +18,7 @@
     }
     
     @media (max-width: 768px) {
-      #activities-map {
+      #activities-map iframe {
         height: 400px;
       }
     }
@@ -191,15 +191,20 @@
           Découvrez les plages, activités nautiques, attractions et points d'intérêt à Pornichet et ses environs. 
           Cliquez sur les marqueurs pour plus d'informations.
         </p>
-        <div class="mb-3 text-center">
-          <span class="badge" style="background-color: #4FC3F7; color: white; margin: 0.25rem;">🏖️ Plages</span>
-          <span class="badge" style="background-color: #66BB6A; color: white; margin: 0.25rem;">🏄 Activités sportives</span>
-          <span class="badge" style="background-color: #FFA726; color: white; margin: 0.25rem;">📍 Points d'intérêt</span>
+        <div id="activities-map">
+          <iframe 
+            src="https://www.google.com/maps/d/embed?mid=1ioaDGhawy4NhwuZhTiBnBqKJmnYDo30" 
+            width="100%" 
+            height="500"
+            style="border:0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-        <div id="activities-map"></div>
         <div class="alert alert-info mt-3" role="alert">
-          <strong>💡 Astuce:</strong> Cliquez sur les marqueurs colorés pour voir les détails de chaque lieu. 
-          Les couleurs indiquent le type: bleu pour les plages, vert pour les activités sportives, et orange pour les points d'intérêt.
+          <strong>💡 Astuce:</strong> Cliquez sur les marqueurs pour voir les détails de chaque lieu. 
+          Utilisez les contrôles de la carte pour zoomer et naviguer.
         </div>
       </div>
     </section>
@@ -213,15 +218,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Weather JS -->
   <script src="weather.js"></script>
-  <!-- Activities Map JS -->
-  <script src="activities-map.js"></script>
-  <!-- 
-    IMPORTANT: Replace 'YOUR_API_KEY_HERE' with your actual Google Maps API key.
-    See GOOGLE_MAPS_SETUP.md for instructions on obtaining a free API key.
-  -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initActivitiesMap">
-  </script>
   <!-- Mobile menu toggle -->
   <script>
     document.getElementById('mobileMenuToggle').addEventListener('click', function() {

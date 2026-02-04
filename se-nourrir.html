@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* Map container styling */
-    #map {
+    #map iframe {
       height: 500px;
       width: 100%;
       border-radius: 12px;
@@ -18,7 +18,7 @@
     }
     
     @media (max-width: 768px) {
-      #map {
+      #map iframe {
         height: 400px;
       }
     }
@@ -92,14 +92,25 @@
     <!-- Interactive Map Section -->
     <section class="py-5 border-bottom">
       <div class="container">
-        <h2 class="text-center mb-4">Carte interactive 🗺️</h2>
+        <h2 class="text-center mb-4">Carte des restaurants et commerces 🗺️</h2>
         <p class="text-center mb-4">
           Découvrez nos restaurants recommandés, boulangeries et marchés à Pornichet. 
           Cliquez sur les marqueurs pour plus d'informations.
         </p>
-        <div id="map"></div>
+        <div id="map">
+          <iframe 
+            src="https://www.google.com/maps/d/embed?mid=1ioaDGhawy4NhwuZhTiBnBqKJmnYDo30" 
+            width="100%" 
+            height="500"
+            style="border:0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
         <div class="alert alert-info mt-3" role="alert">
           <strong>💡 Astuce:</strong> Cliquez sur les marqueurs pour voir les détails de chaque établissement.
+          Utilisez les contrôles de la carte pour zoomer et naviguer.
         </div>
       </div>
     </section>
@@ -113,17 +124,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Weather JS -->
   <script src="weather.js"></script>
-  <!-- Google Maps API -->
-  <script src="map.js"></script>
-  <!-- 
-    IMPORTANT: Replace 'YOUR_API_KEY_HERE' with your actual Google Maps API key.
-    See GOOGLE_MAPS_SETUP.md for instructions on obtaining a free API key.
-    The key should be added here, or better yet, managed through environment variables
-    for production deployments.
-  -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap">
-  </script>
   <!-- Mobile menu toggle -->
   <script>
     document.getElementById('mobileMenuToggle').addEventListener('click', function() {
