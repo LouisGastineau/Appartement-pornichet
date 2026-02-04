@@ -10,20 +10,15 @@
   
   // Create and add toggle button when DOM is ready
   function addDarkModeToggle() {
-    const navRight = document.querySelector('.nav-right');
-    if (!navRight) return;
-    
-    const toggleLi = document.createElement('li');
-    toggleLi.className = 'dark-mode-item';
-    
+    // Create button element
     const toggleButton = document.createElement('button');
     toggleButton.className = 'dark-mode-toggle';
     toggleButton.setAttribute('aria-label', 'Toggle dark mode');
     toggleButton.innerHTML = isDarkMode ? '☀️' : '🌙';
     toggleButton.id = 'darkModeToggle';
     
-    toggleLi.appendChild(toggleButton);
-    navRight.appendChild(toggleLi);
+    // Add directly to body (not in navbar)
+    document.body.appendChild(toggleButton);
     
     // Add click event listener
     toggleButton.addEventListener('click', function() {
