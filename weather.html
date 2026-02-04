@@ -291,17 +291,25 @@
       const WEATHER_CLEAR_SKY = 0;
       const WEATHER_MAINLY_CLEAR = 3;
       
+      // Weather code ranges (WMO codes)
+      const WEATHER_DRIZZLE_START = 51;
+      const WEATHER_RAIN_END = 70;
+      const WEATHER_SNOW_START = 71;
+      const WEATHER_SNOW_END = 86;
+      const WEATHER_RAIN_SHOWERS_START = 80;
+      const WEATHER_RAIN_SHOWERS_END = 82;
+      
       let advice = '';
       let adviceIcon = '';
       let adviceColor = '';
       
       // Determine advice based on weather conditions (check in priority order)
-      if (weatherCode >= 71 && weatherCode <= 86) {
+      if (weatherCode >= WEATHER_SNOW_START && weatherCode <= WEATHER_SNOW_END) {
         // Snowy conditions (codes 71-86: snow fall and snow showers)
         advice = "Préparez-vous pour la neige ! Habillez-vous chaudement.";
         adviceIcon = '🧥';
         adviceColor = 'text-info';
-      } else if ((weatherCode >= 51 && weatherCode <= 70) || (weatherCode >= 80 && weatherCode <= 82)) {
+      } else if ((weatherCode >= WEATHER_DRIZZLE_START && weatherCode <= WEATHER_RAIN_END) || (weatherCode >= WEATHER_RAIN_SHOWERS_START && weatherCode <= WEATHER_RAIN_SHOWERS_END)) {
         // Rainy conditions (codes 51-70: drizzle and rain, 80-82: rain showers, excluding snow 71-77)
         advice = "N'oubliez pas votre parapluie !";
         adviceIcon = '☔';
