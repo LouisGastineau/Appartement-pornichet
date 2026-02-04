@@ -100,7 +100,7 @@
         <div class="card-body text-center py-3">
           <h5 class="mb-2">🌊 Informations sur les marées</h5>
           <p class="mb-2 small">Consultez les horaires détaillés de marée pour Pornichet</p>
-          <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Voir les horaires de marée (ouvre dans une nouvelle fenêtre)">
             Voir les horaires de marée
           </a>
         </div>
@@ -279,42 +279,51 @@
       const precipProb = daily.precipitation_probability_max[0];
       const windSpeed = Math.round(current.wind_speed_10m);
       
+      // Temperature and weather thresholds
+      const TEMP_COLD = 10;
+      const TEMP_HOT = 25;
+      const TEMP_NICE_MIN = 15;
+      const TEMP_SUNNY = 20;
+      const WIND_STRONG = 30;
+      const PRECIP_LIKELY = 50;
+      const WEATHER_CLEAR = 3;
+      
       let advice = '';
       let adviceIcon = '';
       let adviceColor = '';
       
-      // Determine advice based on weather conditions
-      if (weatherCode >= 61 && weatherCode <= 82) {
+      // Determine advice based on weather conditions (check in priority order)
+      if (weatherCode >= 71 && weatherCode <= 86) {
+        // Snowy conditions (check before rainy to avoid overlap)
+        advice = "Préparez-vous pour la neige ! Habillez-vous chaudement. 🧥";
+        adviceIcon = '🧥';
+        adviceColor = 'text-info';
+      } else if (weatherCode >= 61 && weatherCode <= 82) {
         // Rainy conditions
         advice = "N'oubliez pas votre parapluie ! ☔";
         adviceIcon = '☔';
         adviceColor = 'text-primary';
-      } else if (weatherCode >= 71 && weatherCode <= 86) {
-        // Snowy conditions
-        advice = "Préparez-vous pour la neige ! Habillez-vous chaudement. 🧥";
-        adviceIcon = '🧥';
-        adviceColor = 'text-info';
-      } else if (temp >= 25 || (weatherCode === 0 && temp >= 20)) {
+      } else if (temp >= TEMP_HOT || (weatherCode === 0 && temp >= TEMP_SUNNY)) {
         // Hot/sunny weather
         advice = "N'oubliez pas la crème solaire ! ☀️";
         adviceIcon = '🧴';
         adviceColor = 'text-warning';
-      } else if (temp < 10) {
+      } else if (temp < TEMP_COLD) {
         // Cold weather
         advice = "Pensez à prendre un manteau ! 🧥";
         adviceIcon = '🧥';
         adviceColor = 'text-info';
-      } else if (windSpeed > 30) {
+      } else if (windSpeed > WIND_STRONG) {
         // Windy conditions
         advice = "Attention au vent fort aujourd'hui ! 💨";
         adviceIcon = '💨';
         adviceColor = 'text-secondary';
-      } else if (precipProb > 50) {
+      } else if (precipProb > PRECIP_LIKELY) {
         // High precipitation probability
         advice = "Des averses sont possibles, prenez un parapluie ! ☔";
         adviceIcon = '☔';
         adviceColor = 'text-primary';
-      } else if (temp >= 15 && temp < 25 && weatherCode <= 3) {
+      } else if (temp >= TEMP_NICE_MIN && temp < TEMP_HOT && weatherCode <= WEATHER_CLEAR) {
         // Nice weather
         advice = "Temps idéal pour profiter de la plage ! 🏖️";
         adviceIcon = '🏖️';
