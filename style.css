@@ -374,7 +374,7 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   height: 100%;
-  min-height: 250px;
+  min-height: 200px;
 }
 
 /* Square weather card for today's weather */
@@ -481,15 +481,19 @@ body.dark-mode .tide-link-card {
 
 /* Dark mode: Improve text contrast for Bootstrap classes */
 body.dark-mode .text-muted {
-  color: #adb5bd !important;
+  color: #bdc3c7 !important;
 }
 
 body.dark-mode .text-secondary {
-  color: #b0b8c0 !important;
+  color: #cbd0d5 !important;
 }
 
 body.dark-mode .temp-min {
-  color: #9ca3af;
+  color: #b0b8c0;
+}
+
+body.dark-mode .small {
+  color: var(--text-color);
 }
 
 /* Tide cards styling */
