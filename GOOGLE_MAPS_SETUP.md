@@ -1,96 +1,125 @@
-# Google Maps API Setup Instructions
+# Google Maps Integration
 
 ## Overview
-The website now includes an interactive Google Maps feature on the "Se nourrir" page (`se-nourrir.html`) that displays recommended restaurants, bakeries, and markets in Pornichet.
+The website includes an interactive Google My Maps on two pages:
+- **Activities page** (`activities.html`) - displays places to visit, beaches, and activities
+- **Restaurants page** (`se-nourrir.html`) - displays recommended restaurants and food establishments
 
-## Getting a Google Maps API Key
+## Implementation
 
-To use the Google Maps feature, you need to obtain a free API key from Google:
+The website uses **Google My Maps** embedded via iframe, which does not require an API key. The custom map (ID: `1ioaDGhawy4NhwuZhTiBnBqKJmnYDo30`) is shared publicly and embedded directly into the pages.
 
-1. **Go to Google Cloud Console**
-   - Visit: https://console.cloud.google.com/
+### Benefits of Google My Maps:
+- **No API key required** - works immediately without setup
+- **Easy to update** - edit the map in Google My Maps and changes appear automatically
+- **Collaborative** - multiple people can edit the map
+- **User-friendly** - familiar Google Maps interface
+- **No usage limits** - free for unlimited page views
 
-2. **Create a new project** (or select an existing one)
-   - Click "Select a project" at the top
-   - Click "New Project"
-   - Name it (e.g., "Appartement Pornichet Website")
-   - Click "Create"
+### Embed Code:
+```html
+<iframe 
+  src="https://www.google.com/maps/d/embed?mid=1ioaDGhawy4NhwuZhTiBnBqKJmnYDo30" 
+  width="100%" 
+  height="500"
+  style="border:0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+```
 
-3. **Enable the Maps JavaScript API**
-   - In the left sidebar, go to "APIs & Services" > "Library"
-   - Search for "Maps JavaScript API"
-   - Click on it and press "Enable"
+## Editing the Map
 
-4. **Create credentials**
-   - Go to "APIs & Services" > "Credentials"
-   - Click "Create Credentials" > "API Key"
-   - Copy your new API key
+To update the locations and information displayed on the map:
 
-5. **Secure your API key** (Recommended)
-   - Click on your API key to edit it
-   - Under "Application restrictions", select "HTTP referrers"
-   - Add your website domains (e.g., `yourwebsite.com/*`, `*.github.io/*`)
-   - Under "API restrictions", select "Restrict key"
-   - Select only "Maps JavaScript API"
-   - Click "Save"
+1. **Open the map in edit mode**
+   - Visit: https://www.google.com/maps/d/edit?mid=1ioaDGhawy4NhwuZhTiBnBqKJmnYDo30
+   - Sign in with the Google account that has edit access
 
-6. **Add the API key to your website**
-   - Open `se-nourrir.html`
-   - Find the line: `src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap"`
-   - Replace `YOUR_API_KEY_HERE` with your actual API key
+2. **Make your changes**
+   - Add new markers by clicking the marker icon
+   - Edit existing markers by clicking on them
+   - Organize markers into layers (e.g., Restaurants, Activities, Beaches)
+   - Add descriptions, photos, and links to each location
+
+3. **Save your changes**
+   - Changes are saved automatically
+   - The embedded map on the website updates immediately
+
+4. **Share access** (if needed)
+   - Click "Share" in the map editor
+   - Add collaborators by email address
 
 ## Features
 
-The interactive map includes:
+The map includes locations organized by category:
 
-### Restaurants 🍽️
-- **Le Belem** - Seafood restaurant with port view
-- **La Poissonnerie** - Fresh fish and seafood
-- **Crêperie Ty Breizh** - Authentic Breton crêperie
-- **Le Café de la Plage** - Beachfront brasserie
-- **L'Océan** - Gourmet restaurant with sea view
-- **La Villa Flornoy** - Elegant French cuisine
+### Activities Page (`activities.html`)
+- **Beaches** - Sandy beaches with facilities
+- **Water sports** - Sailing, paddle boarding, kayaking
+- **Points of interest** - Marina, markets, golf courses
+- **Cultural sites** - Museums, historic areas
+- **Nature** - Coastal paths, regional parks
 
-### Points of Interest 🗺️
-- **Marché de Pornichet** - Local market (Wed & Sat mornings)
-- **Plage de la Source** - Beautiful sandy beach
-- **Port de Plaisance** - Marina with waterfront promenade
-- **Boulangerie Artisanale** - Traditional bakery
+### Restaurants Page (`se-nourrir.html`)
+- **Restaurants** - Seafood, French cuisine, crêperies
+- **Bakeries** - Traditional boulangeries and pâtisseries
+- **Markets** - Local produce and artisan goods
+- **Cafés** - Beachfront cafés and bistros
 
 ## How to Use
 
-1. Visit the "Restaurants" page on the website
-2. Scroll down to the "Carte interactive" section
-3. Click on colored markers to see details:
-   - 🔴 Pink markers = Restaurants
-   - 🔵 Blue markers = Points of interest
-4. Each marker shows the name, description, and rating
+1. Visit the "Activités" or "Se restaurer" pages
+2. Scroll to the map section
+3. Click on markers to see location details
+4. Use zoom controls to explore the area
+5. Click on location names in the map sidebar to jump to specific places
+6. Use the layer toggle (if available) to show/hide categories
 
 ## Customization
 
-To add or modify locations, edit the `map.js` file:
-- Update the `locations` array with new entries
-- Each location needs: position (lat/lng), title, type, description, rating, and icon
+The map can be customized by editing it in Google My Maps:
 
-## Free Tier Limits
+### Adding Locations:
+1. Open the map in edit mode (link above)
+2. Click "Add marker" button
+3. Place marker on the map
+4. Add title, description, and photos
+5. Choose the appropriate layer (category)
 
-Google Maps provides a free tier with:
-- $200 monthly credit (enough for ~28,000 map loads per month)
-- No credit card required for development
-- For production, add billing but won't be charged unless you exceed the free tier
+### Styling Markers:
+- Use custom icons for different categories
+- Apply different colors to layers
+- Add photos to make locations more attractive
+
+### Organizing Layers:
+- Create separate layers for different types of locations
+- Name layers clearly (e.g., "Restaurants", "Plages", "Activités")
+- Users can toggle layers on/off in the embedded map
+
+## Technical Details
+
+- **No JavaScript required** - Simple iframe embed
+- **No API key required** - Completely free
+- **Responsive design** - Works on mobile, tablet, and desktop
+- **Fast loading** - Uses `loading="lazy"` for better performance
+- **Works offline-compatible** - Once loaded, basic functionality remains
+- **Cross-browser compatible** - Works in all modern browsers
 
 ## Troubleshooting
 
-- **Map not loading?** Check that your API key is correctly inserted
-- **"This page can't load Google Maps correctly"?** Your API key may be restricted or invalid
+- **Map not loading?** Check your internet connection
+- **Map appears empty?** The custom map may have been deleted or made private
+- **Cannot edit map?** You need edit permissions on the Google My Maps
 - **Want to test locally?** The map works with a simple HTTP server (see main README.md)
 
 ## Support
 
-For issues with Google Maps API:
-- Documentation: https://developers.google.com/maps/documentation/javascript
-- Support: https://developers.google.com/maps/support
+For issues with Google My Maps:
+- Documentation: https://support.google.com/mymaps
+- Create or edit maps: https://www.google.com/mymaps
 
 ---
 
-**Note:** The map feature uses the free Open-Meteo API for weather (no key required) and Google Maps API for the interactive map (key required).
+**Note:** The weather widget uses the free Open-Meteo API (no key required) and the maps use Google My Maps (also no key required).

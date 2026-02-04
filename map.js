@@ -1,3 +1,8 @@
+// DEPRECATED: This file is no longer used by the website.
+// The website now uses Google My Maps embedded via iframe instead of custom JavaScript.
+// See GOOGLE_MAPS_SETUP.md for the current implementation.
+// This file is kept for reference only.
+
 // Google Maps implementation for Pornichet restaurants and POIs
 // Center coordinates for Pornichet, France: 47.26°N, -2.34°W
 
