@@ -13,8 +13,8 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 - **📋 House Rules**: Important guidelines for guests including noise regulations and plant watering etiquette
 - **🎨 Activities**: Local activities, attractions, POIs, museums, sports rentals, and sea windmill visits
 - **🛒 Equipment**: Nearby commerces and services (shops, bakeries, markets, pharmacies)
-- **🍽️ Se nourrir**: Restaurants, bakeries, and markets with interactive Google Maps
-- **🗺️ Interactive Map**: Google Maps integration showing recommended restaurants and food locations
+- **🍽️ Se nourrir**: Restaurants, bakeries, and markets with embedded Google My Maps
+- **🗺️ Interactive Map**: Google My Maps integration showing recommended restaurants, activities, and food locations
 - **🌤️ Weather Widget**: Quick-access real-time weather display in the navigation bar using Open-Meteo API
 - **☀️ Weather Page**: Dedicated page with comprehensive weather information including current conditions, 7-day forecast, marine/tide conditions, wind, and humidity details
 - **🌙 Dark Mode**: Toggle between light and dark themes with persistent preference storage
@@ -49,7 +49,7 @@ The activities page showcases local attractions and things to do in Pornichet:
 - **Discovery and culture** (🎨): Local markets, coastal trails, nearby attractions like La Baule and Brière Natural Park
 - **Points of interest** (🗺️): Marina, beaches, Saint-Nazaire offshore wind farm, and local heritage sites
 - **Sports equipment rental** (🏄): Information about bike, surfboard, kayak, and diving equipment rentals
-- **Interactive map**: Google Maps integration showing beaches, sports activities, and points of interest with color-coded markers
+- **Interactive map**: Google My Maps embed showing beaches, sports activities, restaurants, and points of interest with organized layers
 
 ### Weather Page
 ![Weather Screenshot](screenshots/weather-screenshot.png)
@@ -70,8 +70,7 @@ The dedicated weather page provides comprehensive meteorological information for
   - Bootstrap's JavaScript bundle for responsive components
   - Custom dark mode toggle (`dark-mode.js`) with localStorage persistence
   - Weather widget integration (`weather.js`)
-  - Interactive map functionality (`map.js`, `activities-map.js`)
-- **Google Maps JavaScript API**: Interactive map with custom markers and info windows
+- **Google My Maps**: Embedded interactive map (no API key required)
 - **Open-Meteo API**: Free weather data (no API key required)
 - **Open-Meteo Marine API**: Ocean/wave conditions and marine data
 
@@ -89,14 +88,17 @@ npx http-server -p 8000
 
 Then navigate to `http://localhost:8000` in your browser.
 
-### Setting up Google Maps
+### Using Google My Maps
 
-The interactive map on the Restaurants page requires a Google Maps API key. See [GOOGLE_MAPS_SETUP.md](GOOGLE_MAPS_SETUP.md) for detailed instructions on:
-- How to obtain a free Google Maps API key
-- How to configure and secure your API key
-- How to add it to the website
+The interactive maps on the Activities and Restaurants pages use Google My Maps embedded via iframe. This approach:
+- **Requires no API key** - works immediately
+- **Easy to update** - edit the map in Google My Maps and changes appear automatically
+- **No usage limits** - completely free
 
-**Note**: The map will show a placeholder until you add your API key.
+See [GOOGLE_MAPS_SETUP.md](GOOGLE_MAPS_SETUP.md) for:
+- How to edit the map content
+- How to add new locations and markers
+- How to organize map layers
 
 ## Pages
 
@@ -106,7 +108,7 @@ The interactive map on the Restaurants page requires a Google Maps API key. See 
 - **regles.html** - Complete list of rules and regulations
 - **activities.html** - Local activities, attractions, POIs, museums, and sports equipment rentals
 - **equipement.html** - Commerces and services (shops, bakeries, markets, pharmacies)
-- **se-nourrir.html** - Restaurants, bakeries, and markets with interactive Google Maps
+- **se-nourrir.html** - Restaurants, bakeries, and markets with embedded Google My Maps
 - **weather.html** - Detailed weather page with current conditions, 7-day forecast, marine conditions, and additional weather information
 - **contact.html** - Contact information
 
