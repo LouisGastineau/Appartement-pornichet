@@ -377,6 +377,12 @@ footer {
   min-height: 250px;
 }
 
+/* Square weather card for today's weather */
+.weather-square-card {
+  aspect-ratio: 1 / 1;
+  min-height: auto;
+}
+
 body.dark-mode .weather-dashboard-card {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
@@ -420,6 +426,26 @@ body.dark-mode .weather-forecast-horizontal {
 .forecast-precip-text {
   font-size: 0.75rem;
   min-height: 1rem;
+}
+
+/* Compact tide link card */
+.tide-link-card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  background: var(--card-bg);
+}
+
+body.dark-mode .tide-link-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tide-link-card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .weather-icon-large {

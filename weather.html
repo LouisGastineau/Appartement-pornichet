@@ -49,11 +49,11 @@
       <p class="lead">Planifiez votre journée avec les prévisions météorologiques.</p>
     </section>
 
-    <!-- Today's Weather Dashboard - Two Cards Side by Side -->
+    <!-- Today's Weather Dashboard - Square Card Left, Tips Right -->
     <div class="row g-3 mb-4">
-      <!-- Current Weather Card -->
-      <div class="col-md-6">
-        <div class="card weather-dashboard-card">
+      <!-- Current Weather Card - Square -->
+      <div class="col-md-4">
+        <div class="card weather-dashboard-card weather-square-card">
           <div class="card-body" id="current-weather">
             <div class="text-center">
               <div class="spinner-border text-primary" role="status">
@@ -65,7 +65,7 @@
       </div>
 
       <!-- Weather Advice Card -->
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="card weather-dashboard-card">
           <div class="card-body" id="weather-advice">
             <div class="text-center">
@@ -94,14 +94,13 @@
       </div>
     </div>
 
-    <!-- Tide Information Link -->
+    <!-- Tide Information Link - Compact -->
     <div class="mb-4">
-      <div class="card weather-dashboard-card">
-        <div class="card-body text-center py-3">
-          <h5 class="mb-2">🌊 Informations sur les marées</h5>
-          <p class="mb-2 small">Consultez les horaires détaillés de marée pour Pornichet</p>
+      <div class="card tide-link-card">
+        <div class="card-body text-center py-2">
+          <span class="small">🌊 Marées : </span>
           <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            Voir les horaires de marée
+            Voir les horaires
           </a>
         </div>
       </div>
