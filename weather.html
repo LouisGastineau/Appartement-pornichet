@@ -265,7 +265,7 @@
             <div class="small mb-1">
               <span class="temp-max">${maxTemp}°</span><span class="text-muted">/</span><span class="temp-min text-muted">${minTemp}°</span>
             </div>
-            ${precipProb > 0 ? `<div class="text-muted" style="font-size: 0.75rem;">💧 ${precipProb}%</div>` : '<div style="height: 1rem;"></div>'}
+            ${precipProb > 0 ? `<div class="text-muted forecast-precip-text">💧 ${precipProb}%</div>` : '<div class="forecast-precip-spacer"></div>'}
           </div>
         `;
       }
@@ -295,12 +295,12 @@
       
       // Determine advice based on weather conditions (check in priority order)
       if (weatherCode >= 71 && weatherCode <= 86) {
-        // Snowy conditions (check before rainy to avoid overlap)
+        // Snowy conditions (codes 71-86: snow fall and snow showers)
         advice = "Préparez-vous pour la neige ! Habillez-vous chaudement.";
         adviceIcon = '🧥';
         adviceColor = 'text-info';
-      } else if (weatherCode >= 61 && weatherCode <= 82) {
-        // Rainy conditions
+      } else if ((weatherCode >= 51 && weatherCode <= 70) || (weatherCode >= 80 && weatherCode <= 82)) {
+        // Rainy conditions (codes 51-70: drizzle and rain, 80-82: rain showers, excluding snow 71-77)
         advice = "N'oubliez pas votre parapluie !";
         adviceIcon = '☔';
         adviceColor = 'text-primary';
