@@ -368,6 +368,55 @@ footer {
   padding: 2rem;
 }
 
+/* Weather dashboard cards - compact and modern */
+.weather-dashboard-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  height: 100%;
+  min-height: 250px;
+}
+
+body.dark-mode .weather-dashboard-card {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.weather-icon-dashboard {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.advice-icon {
+  font-size: 4rem;
+}
+
+/* Horizontal forecast card */
+.weather-forecast-horizontal {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow-x: auto;
+}
+
+body.dark-mode .weather-forecast-horizontal {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.forecast-day-item {
+  flex: 1;
+  min-width: 100px;
+  padding: 0.75rem;
+  border-right: 1px solid var(--section-border);
+}
+
+.forecast-day-item:last-child {
+  border-right: none;
+}
+
+.forecast-icon-small {
+  font-size: 2rem;
+}
+
 .weather-icon-large {
   font-size: 6rem;
   margin-bottom: 1rem;
