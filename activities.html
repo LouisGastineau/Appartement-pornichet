@@ -8,20 +8,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
-    /* Map container styling */
-    #activities-map iframe {
-      height: 500px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    
-    @media (max-width: 768px) {
-      #activities-map iframe {
-        height: 400px;
-      }
-    }
+    #map { height: 600px; width: 100%; }
   </style>
 </head>
 <body>
@@ -56,6 +46,22 @@
       </ul>
     </nav>
   </header>
+
+      <!-- Interactive Map Section -->
+    <section class="py-5 border-bottom">
+      <div class="container">
+        <h2 class="text-center mb-4">Carte des activités et points d'intérêt 🗺️</h2>
+        <p class="text-center mb-4">
+          Découvrez les plages, activités nautiques, attractions et points d'intérêt à Pornichet et ses environs. 
+          Cliquez sur les marqueurs pour plus d'informations.
+        </p>
+        <div id="map"></div>
+        <div class="alert alert-info mt-3" role="alert">
+          <strong>💡 Astuce:</strong> Cliquez sur les marqueurs pour voir les détails de chaque lieu. 
+          Utilisez les contrôles de la carte pour zoomer et naviguer.
+        </div>
+      </div>
+    </section>
 
 <section class="py-5 border-bottom">
       <div class="container">
@@ -183,33 +189,6 @@
       </div>
     </section>
 
-    <!-- Interactive Map Section -->
-    <section class="py-5 border-bottom">
-      <div class="container">
-        <h2 class="text-center mb-4">Carte des activités et points d'intérêt 🗺️</h2>
-        <p class="text-center mb-4">
-          Découvrez les plages, activités nautiques, attractions et points d'intérêt à Pornichet et ses environs. 
-          Cliquez sur les marqueurs pour plus d'informations.
-        </p>
-        <div id="activities-map">
-          <iframe 
-            src="https://www.google.com/maps/d/embed?mid=1ioaDGhawy4NhwuZhTiBnBqKJmnYDo30" 
-            width="100%" 
-            height="500"
-            style="border:0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Carte des activités et points d'intérêt à Pornichet">
-          </iframe>
-        </div>
-        <div class="alert alert-info mt-3" role="alert">
-          <strong>💡 Astuce:</strong> Cliquez sur les marqueurs pour voir les détails de chaque lieu. 
-          Utilisez les contrôles de la carte pour zoomer et naviguer.
-        </div>
-      </div>
-    </section>
-
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Gastineau Louis | Made with 💖</p>
@@ -228,5 +207,29 @@
   </script>
   <!-- Dark mode toggle -->
   <script src="dark-mode.js"></script>
+  <!-- Map script -->
+   <script>
+    // Initialize map
+    const map = L.map('map').setView([37.7749, -122.4194], 6);
+    
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Add your points of interest
+    const points = [
+      { coords: [37.7749, -122.4194], popup: "San Francisco HQ" },
+      { coords: [34.0522, -118.2437], popup: "LA Office" },
+    ];
+    
+    points.forEach(point => {
+      L.marker(point.coords)
+        .addTo(map)
+        .bindPopup(point.popup);
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
