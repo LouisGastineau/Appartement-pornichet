@@ -638,3 +638,9 @@ body.dark-mode .banner::before {
 body.dark-mode .emergency-card {
   background: linear-gradient(135deg, var(--card-bg) 0%, #1F2D3D 100%);
 }
+
+/* Activities map styling */
+#map {
+  height: 600px;
+  width: 100%;
+}
