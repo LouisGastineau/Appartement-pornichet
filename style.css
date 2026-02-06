@@ -285,6 +285,26 @@ footer {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
+footer p {
+  margin-bottom: 5px;
+}
+
+footer .small {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+footer a {
+  color: var(--soft-sand);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+footer a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
 /* Container improvements */
 .container {
   max-width: 1200px;
