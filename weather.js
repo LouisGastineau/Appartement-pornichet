@@ -34,44 +34,44 @@ async function fetchWeather() {
     console.error('Error fetching weather:', error);
     weatherElement.innerHTML = `
       <a href="weather.html" class="weather-link">
-        <span class="weather-icon">🌤️</span>
+        <span class="weather-icon"><i class="fas fa-cloud-sun" aria-hidden="true"></i></span>
       </a>
     `;
     weatherElement.classList.add('weather-loaded');
   }
 }
 
-// Convert WMO weather codes to emojis
+// Convert WMO weather codes to Font Awesome icons
 // Reference: https://open-meteo.com/en/docs
 function getWeatherIcon(code) {
   const weatherCodes = {
-    0: '☀️',    // Clear sky
-    1: '🌤️',   // Mainly clear
-    2: '⛅',   // Partly cloudy
-    3: '☁️',   // Overcast
-    45: '🌫️',  // Fog
-    48: '🌫️',  // Depositing rime fog
-    51: '🌦️',  // Drizzle: Light
-    53: '🌦️',  // Drizzle: Moderate
-    55: '🌧️',  // Drizzle: Dense
-    61: '🌧️',  // Rain: Slight
-    63: '🌧️',  // Rain: Moderate
-    65: '🌧️',  // Rain: Heavy
-    71: '🌨️',  // Snow fall: Slight
-    73: '🌨️',  // Snow fall: Moderate
-    75: '🌨️',  // Snow fall: Heavy
-    77: '❄️',   // Snow grains
-    80: '🌦️',  // Rain showers: Slight
-    81: '🌧️',  // Rain showers: Moderate
-    82: '🌧️',  // Rain showers: Violent
-    85: '🌨️',  // Snow showers: Slight
-    86: '🌨️',  // Snow showers: Heavy
-    95: '⛈️',   // Thunderstorm
-    96: '⛈️',   // Thunderstorm with slight hail
-    99: '⛈️'    // Thunderstorm with heavy hail
+    0: '<i class="fas fa-sun" aria-hidden="true"></i>',           // Clear sky
+    1: '<i class="fas fa-cloud-sun" aria-hidden="true"></i>',     // Mainly clear
+    2: '<i class="fas fa-cloud-sun" aria-hidden="true"></i>',     // Partly cloudy
+    3: '<i class="fas fa-cloud" aria-hidden="true"></i>',         // Overcast
+    45: '<i class="fas fa-smog" aria-hidden="true"></i>',         // Fog
+    48: '<i class="fas fa-smog" aria-hidden="true"></i>',         // Depositing rime fog
+    51: '<i class="fas fa-cloud-sun-rain" aria-hidden="true"></i>', // Drizzle: Light
+    53: '<i class="fas fa-cloud-sun-rain" aria-hidden="true"></i>', // Drizzle: Moderate
+    55: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Drizzle: Dense
+    61: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain: Slight
+    63: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain: Moderate
+    65: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain: Heavy
+    71: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow fall: Slight
+    73: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow fall: Moderate
+    75: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow fall: Heavy
+    77: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow grains
+    80: '<i class="fas fa-cloud-sun-rain" aria-hidden="true"></i>', // Rain showers: Slight
+    81: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain showers: Moderate
+    82: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain showers: Violent
+    85: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow showers: Slight
+    86: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow showers: Heavy
+    95: '<i class="fas fa-bolt" aria-hidden="true"></i>',         // Thunderstorm
+    96: '<i class="fas fa-bolt" aria-hidden="true"></i>',         // Thunderstorm with slight hail
+    99: '<i class="fas fa-bolt" aria-hidden="true"></i>'          // Thunderstorm with heavy hail
   };
   
-  return weatherCodes[code] || '🌤️';
+  return weatherCodes[code] || '<i class="fas fa-cloud-sun" aria-hidden="true"></i>';
 }
 
 // Load weather when page loads

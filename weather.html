@@ -6,6 +6,8 @@
   <title>Météo - Appartement Pornichet</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -35,7 +37,7 @@
         <li><a href="contact.html">Contacts</a></li>
         <li class="weather-item">
           <div id="weather-display" class="weather-bar">
-            <span class="weather-icon">⏳</span>
+            <span class="weather-icon"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i></span>
           </div>
         </li>
       </ul>
@@ -45,7 +47,7 @@
   <!-- Main Content -->
   <div class="container my-4">
     <section class="mb-4">
-      <h1 class="mb-3">🌤️ Météo à Pornichet</h1>
+      <h1 class="mb-3"><i class="fas fa-cloud-sun" aria-hidden="true"></i> Météo à Pornichet</h1>
       <p class="lead">Planifiez votre journée avec les prévisions météorologiques.</p>
     </section>
 
@@ -98,7 +100,7 @@
     <div class="mb-4">
       <div class="card tide-link-card">
         <div class="card-body text-center py-2">
-          <span class="small">🌊 Marées : </span>
+          <span class="small"><i class="fas fa-water" aria-hidden="true"></i> Marées : </span>
           <a href="https://maree.info/108" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
             Voir les horaires
           </a>
@@ -109,8 +111,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Gastineau Louis | Made with 💖</p>
-    <p class="small">Maps: <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> 🇺🇦 | <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
+    <p>&copy; 2025 Gastineau Louis | Made with <i class="fas fa-heart" aria-hidden="true"></i></p>
+    <p class="small">Maps: <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> <i class="fas fa-flag" aria-hidden="true"></i> | <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
   </footer>
 
   <!-- Bootstrap JS -->
@@ -122,32 +124,32 @@
     // Function to get weather icon based on WMO code
     function getWeatherIcon(code) {
       const weatherCodes = {
-        0: '☀️',    // Clear sky
-        1: '🌤️',   // Mainly clear
-        2: '⛅',   // Partly cloudy
-        3: '☁️',   // Overcast
-        45: '🌫️',  // Fog
-        48: '🌫️',  // Depositing rime fog
-        51: '🌦️',  // Drizzle: Light
-        53: '🌦️',  // Drizzle: Moderate
-        55: '🌧️',  // Drizzle: Dense
-        61: '🌧️',  // Rain: Slight
-        63: '🌧️',  // Rain: Moderate
-        65: '🌧️',  // Rain: Heavy
-        71: '🌨️',  // Snow fall: Slight
-        73: '🌨️',  // Snow fall: Moderate
-        75: '🌨️',  // Snow fall: Heavy
-        77: '❄️',   // Snow grains
-        80: '🌦️',  // Rain showers: Slight
-        81: '🌧️',  // Rain showers: Moderate
-        82: '🌧️',  // Rain showers: Violent
-        85: '🌨️',  // Snow showers: Slight
-        86: '🌨️',  // Snow showers: Heavy
-        95: '⛈️',   // Thunderstorm
-        96: '⛈️',   // Thunderstorm with slight hail
-        99: '⛈️'    // Thunderstorm with heavy hail
+        0: '<i class="fas fa-sun" aria-hidden="true"></i>',           // Clear sky
+        1: '<i class="fas fa-cloud-sun" aria-hidden="true"></i>',     // Mainly clear
+        2: '<i class="fas fa-cloud-sun" aria-hidden="true"></i>',     // Partly cloudy
+        3: '<i class="fas fa-cloud" aria-hidden="true"></i>',         // Overcast
+        45: '<i class="fas fa-smog" aria-hidden="true"></i>',         // Fog
+        48: '<i class="fas fa-smog" aria-hidden="true"></i>',         // Depositing rime fog
+        51: '<i class="fas fa-cloud-sun-rain" aria-hidden="true"></i>', // Drizzle: Light
+        53: '<i class="fas fa-cloud-sun-rain" aria-hidden="true"></i>', // Drizzle: Moderate
+        55: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Drizzle: Dense
+        61: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain: Slight
+        63: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain: Moderate
+        65: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain: Heavy
+        71: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow fall: Slight
+        73: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow fall: Moderate
+        75: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow fall: Heavy
+        77: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow grains
+        80: '<i class="fas fa-cloud-sun-rain" aria-hidden="true"></i>', // Rain showers: Slight
+        81: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain showers: Moderate
+        82: '<i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>', // Rain showers: Violent
+        85: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow showers: Slight
+        86: '<i class="fas fa-snowflake" aria-hidden="true"></i>',    // Snow showers: Heavy
+        95: '<i class="fas fa-bolt" aria-hidden="true"></i>',         // Thunderstorm
+        96: '<i class="fas fa-bolt" aria-hidden="true"></i>',         // Thunderstorm with slight hail
+        99: '<i class="fas fa-bolt" aria-hidden="true"></i>'          // Thunderstorm with heavy hail
       };
-      return weatherCodes[code] || '🌤️';
+      return weatherCodes[code] || '<i class="fas fa-cloud-sun" aria-hidden="true"></i>';
     }
 
     function getWeatherDescription(code) {
@@ -237,8 +239,8 @@
             <div><span>Min: ${minTemp}°C</span></div>
           </div>
           <div class="d-flex justify-content-around mt-2 text-muted small">
-            <div>💨 ${windSpeed} km/h</div>
-            <div>💧 ${humidity}%</div>
+            <div><i class="fas fa-wind" aria-hidden="true"></i> ${windSpeed} km/h</div>
+            <div><i class="fas fa-tint" aria-hidden="true"></i> ${humidity}%</div>
           </div>
         </div>
       `;
@@ -266,7 +268,7 @@
               <span class="temp-max">${maxTemp}°</span><span class="text-muted">/</span><span class="temp-min text-muted">${minTemp}°</span>
             </div>
             <div class="text-muted forecast-precip-text">
-              ${precipProb > 0 ? `💧 ${precipProb}%` : '&nbsp;'}
+              ${precipProb > 0 ? `<i class="fas fa-tint" aria-hidden="true"></i> ${precipProb}%` : '&nbsp;'}
             </div>
           </div>
         `;
@@ -307,42 +309,42 @@
       if (weatherCode >= WEATHER_SNOW_START && weatherCode <= WEATHER_SNOW_END) {
         // Snowy conditions (codes 71-86: snow fall and snow showers)
         advice = "Préparez-vous pour la neige ! Habillez-vous chaudement.";
-        adviceIcon = '🧥';
+        adviceIcon = '<i class="fas fa-temperature-low" aria-hidden="true"></i>';
         adviceColor = 'text-info';
       } else if ((weatherCode >= WEATHER_DRIZZLE_START && weatherCode <= WEATHER_RAIN_END) || (weatherCode >= WEATHER_RAIN_SHOWERS_START && weatherCode <= WEATHER_RAIN_SHOWERS_END)) {
         // Rainy conditions (codes 51-70: drizzle and rain, 80-82: rain showers, excluding snow 71-77)
         advice = "N'oubliez pas votre parapluie !";
-        adviceIcon = '☔';
+        adviceIcon = '<i class="fas fa-umbrella" aria-hidden="true"></i>';
         adviceColor = 'text-primary';
       } else if (temp >= TEMP_HOT || (weatherCode <= WEATHER_MAINLY_CLEAR && temp >= TEMP_SUNNY)) {
         // Hot/sunny weather (hot temp or mainly clear sky with warm temp)
         advice = "N'oubliez pas la crème solaire !";
-        adviceIcon = '🧴';
+        adviceIcon = '<i class="fas fa-sun" aria-hidden="true"></i>';
         adviceColor = 'text-warning';
       } else if (temp < TEMP_COLD) {
         // Cold weather
         advice = "Pensez à prendre un manteau !";
-        adviceIcon = '🧥';
+        adviceIcon = '<i class="fas fa-temperature-low" aria-hidden="true"></i>';
         adviceColor = 'text-info';
       } else if (windSpeed > WIND_STRONG) {
         // Windy conditions
         advice = "Attention au vent fort aujourd'hui !";
-        adviceIcon = '💨';
+        adviceIcon = '<i class="fas fa-wind" aria-hidden="true"></i>';
         adviceColor = 'text-secondary';
       } else if (precipProb > PRECIP_LIKELY) {
         // High precipitation probability
         advice = "Des averses sont possibles, prenez un parapluie !";
-        adviceIcon = '☔';
+        adviceIcon = '<i class="fas fa-umbrella" aria-hidden="true"></i>';
         adviceColor = 'text-primary';
       } else if (temp >= TEMP_NICE_MIN && temp < TEMP_HOT && weatherCode <= WEATHER_MAINLY_CLEAR) {
         // Nice weather (clear to mainly clear sky)
         advice = "Temps idéal pour profiter de la plage !";
-        adviceIcon = '🏖️';
+        adviceIcon = '<i class="fas fa-umbrella-beach" aria-hidden="true"></i>';
         adviceColor = 'text-success';
       } else {
         // Default advice
         advice = "Bonne journée à Pornichet !";
-        adviceIcon = '😊';
+        adviceIcon = '<i class="fas fa-smile" aria-hidden="true"></i>';
         adviceColor = 'text-success';
       }
       

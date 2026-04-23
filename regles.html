@@ -9,6 +9,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -38,7 +40,7 @@
           <li><a href="contact.html">Contacts</a></li>
           <li class="weather-item">
             <div id="weather-display" class="weather-bar">
-              <span class="weather-icon">⏳</span>
+              <span class="weather-icon"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i></span>
             </div>
           </li>
         </ul>
@@ -46,7 +48,7 @@
     </header>
 
     <div class="container my-5">
-      <h1 class="mb-4">📋 Règles de la résidence</h1>
+      <h1 class="mb-4"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Règles de la résidence</h1>
       <p class="lead">Pour assurer le confort de tous, voici quelques règles simples à respecter pendant votre séjour.</p>
 
       <!-- Collapsible House Rules / Safety Tips -->
@@ -56,7 +58,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingNoise">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNoise" aria-expanded="true" aria-controls="collapseNoise">
-              🎵 Le bruit au sein de la copropriété
+              <i class="fas fa-music" aria-hidden="true"></i> Le bruit au sein de la copropriété
             </button>
           </h2>
           <div id="collapseNoise" class="accordion-collapse collapse show" aria-labelledby="headingNoise" data-bs-parent="#rulesAccordion">
@@ -78,7 +80,7 @@
               </ul>
               <p>
                 Un petit geste de chacun permet à tout le monde de vivre
-                sereinement ✨
+                sereinement <i class="fas fa-star" aria-hidden="true"></i>
               </p>
             </div>
           </div>
@@ -88,7 +90,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingPlants">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlants" aria-expanded="false" aria-controls="collapsePlants">
-              🌿 L'arrosage des plantes
+              <i class="fas fa-leaf" aria-hidden="true"></i> L'arrosage des plantes
             </button>
           </h2>
           <div id="collapsePlants" class="accordion-collapse collapse" aria-labelledby="headingPlants" data-bs-parent="#rulesAccordion">
@@ -110,7 +112,7 @@
                 <li>Privilégiez l'arrosage tôt le matin ou en fin de journée.</li>
               </ul>
               <p>
-                Ainsi, chacun profite d'espaces verts agréables sans désagrément ✨
+                Ainsi, chacun profite d'espaces verts agréables sans désagrément <i class="fas fa-star" aria-hidden="true"></i>
               </p>
             </div>
           </div>
@@ -120,7 +122,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingSafety">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSafety" aria-expanded="false" aria-controls="collapseSafety">
-              🔒 Conseils de sécurité
+              <i class="fas fa-lock" aria-hidden="true"></i> Conseils de sécurité
             </button>
           </h2>
           <div id="collapseSafety" class="accordion-collapse collapse" aria-labelledby="headingSafety" data-bs-parent="#rulesAccordion">
@@ -146,7 +148,7 @@
                 </li>
               </ul>
               <p>
-                En cas d'urgence, les numéros importants sont disponibles sur la page <a href="contact.html">Contacts</a> 🆘
+                En cas d'urgence, les numéros importants sont disponibles sur la page <a href="contact.html">Contacts</a> <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
               </p>
             </div>
           </div>
@@ -156,7 +158,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingWaste">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWaste" aria-expanded="false" aria-controls="collapseWaste">
-              ♻️ Tri des déchets
+              <i class="fas fa-recycle" aria-hidden="true"></i> Tri des déchets
             </button>
           </h2>
           <div id="collapseWaste" class="accordion-collapse collapse" aria-labelledby="headingWaste" data-bs-parent="#rulesAccordion">
@@ -179,7 +181,7 @@
                 </li>
               </ul>
               <p>
-                Les jours de collecte sont affichés dans l'entrée de la résidence 🌍
+                Les jours de collecte sont affichés dans l'entrée de la résidence <i class="fas fa-globe" aria-hidden="true"></i>
               </p>
             </div>
           </div>
@@ -189,7 +191,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingCommon">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommon" aria-expanded="false" aria-controls="collapseCommon">
-              🏢 Parties communes
+              <i class="fas fa-building" aria-hidden="true"></i> Parties communes
             </button>
           </h2>
           <div id="collapseCommon" class="accordion-collapse collapse" aria-labelledby="headingCommon" data-bs-parent="#rulesAccordion">
@@ -212,7 +214,7 @@
                 </li>
               </ul>
               <p>
-                Le respect des espaces communs contribue au bien-être de tous 🤝
+                Le respect des espaces communs contribue au bien-être de tous <i class="fas fa-handshake" aria-hidden="true"></i>
               </p>
             </div>
           </div>
@@ -225,7 +227,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <h2>🤝 Respect et convivialité</h2>
+            <h2><i class="fas fa-handshake" aria-hidden="true"></i> Respect et convivialité</h2>
             <p>
               Toutes ces règles ont pour but de créer un environnement agréable pour tous les résidents
               et visiteurs de la résidence. En les respectant, vous contribuez à maintenir une atmosphère
@@ -233,7 +235,7 @@
             </p>
             <p>
               Si vous avez des questions concernant ces règles ou besoin de clarifications,
-              n'hésitez pas à nous contacter. Nous sommes là pour vous aider ! 📞
+              n'hésitez pas à nous contacter. Nous sommes là pour vous aider ! <i class="fas fa-phone" aria-hidden="true"></i>
             </p>
           </div>
           <div class="col-md-6">
@@ -271,8 +273,8 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2025 Gastineau Louis | Made with 💖</p>
-      <p class="small">Maps: <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> 🇺🇦 | <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
+      <p>&copy; 2025 Gastineau Louis | Made with <i class="fas fa-heart" aria-hidden="true"></i></p>
+      <p class="small">Maps: <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> <i class="fas fa-flag" aria-hidden="true"></i> | <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
     </footer>
 
     <!-- Bootstrap JS -->
