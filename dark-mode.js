@@ -14,7 +14,7 @@
     const toggleButton = document.createElement('button');
     toggleButton.className = 'dark-mode-toggle';
     toggleButton.setAttribute('aria-label', 'Toggle dark mode');
-    toggleButton.innerHTML = isDarkMode ? '☀️' : '🌙';
+    toggleButton.innerHTML = isDarkMode ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
     toggleButton.id = 'darkModeToggle';
     
     // Add directly to body (not in navbar)
@@ -30,7 +30,7 @@
       localStorage.setItem('darkMode', isNowDark);
       
       // Update button icon
-      this.innerHTML = isNowDark ? '☀️' : '🌙';
+      this.innerHTML = isNowDark ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
     });
   }
   
