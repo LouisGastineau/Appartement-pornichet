@@ -236,6 +236,11 @@ section p, section li {
   line-height: 1.6;
 }
 
+/* Espacement entre une icône et le texte qui suit */
+i[class*="fa-"] {
+  margin-inline-end: 0.35em;
+}
+
 /* Card styling with coastal theme */
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
