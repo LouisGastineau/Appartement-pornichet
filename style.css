@@ -10,6 +10,12 @@
   --sunset-coral: #E8A598;
   --light-gray: #F5F5F5;
   --navbar-logo-spacing: 80px;
+  --weather-icon-sun: #FFD166;
+  --weather-icon-partly-cloudy: #F6BD60;
+  --weather-icon-cloud: #B0BEC5;
+  --weather-icon-rain: #4D96FF;
+  --weather-icon-snow: #A9DEF9;
+  --weather-icon-storm: #B388EB;
   
   /* Light mode specific */
   --bg-color: #FFF9F0;
@@ -31,6 +37,12 @@ body.dark-mode {
   --deep-ocean: #4A7A9C;
   --sunset-coral: #D19587;
   --light-gray: #2A3F5F;
+  --weather-icon-sun: #FFD98A;
+  --weather-icon-partly-cloudy: #F8C47A;
+  --weather-icon-cloud: #C2CCD3;
+  --weather-icon-rain: #7AB8FF;
+  --weather-icon-snow: #C2EBFF;
+  --weather-icon-storm: #C8A4F0;
 }
 
 body {
@@ -373,6 +385,30 @@ footer a:hover {
 .weather-icon {
   font-size: 1.2rem;
   line-height: 1;
+}
+
+.weather-condition-sun {
+  color: var(--weather-icon-sun);
+}
+
+.weather-condition-partly-cloudy {
+  color: var(--weather-icon-partly-cloudy);
+}
+
+.weather-condition-cloud {
+  color: var(--weather-icon-cloud);
+}
+
+.weather-condition-rain {
+  color: var(--weather-icon-rain);
+}
+
+.weather-condition-snow {
+  color: var(--weather-icon-snow);
+}
+
+.weather-condition-storm {
+  color: var(--weather-icon-storm);
 }
 
 .weather-temp {
