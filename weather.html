@@ -121,37 +121,6 @@
   <script src="weather.js"></script>
   <!-- Weather page specific JS -->
   <script>
-    // Function to get weather icon based on WMO code
-    function getWeatherIcon(code) {
-      const weatherCodes = {
-        0: '<i class="fas fa-sun weather-condition-sun" aria-hidden="true"></i>',           // Clear sky
-        1: '<i class="fas fa-cloud-sun weather-condition-partly-cloudy" aria-hidden="true"></i>',     // Mainly clear
-        2: '<i class="fas fa-cloud-sun weather-condition-partly-cloudy" aria-hidden="true"></i>',     // Partly cloudy
-        3: '<i class="fas fa-cloud weather-condition-cloud" aria-hidden="true"></i>',         // Overcast
-        45: '<i class="fas fa-smog weather-condition-cloud" aria-hidden="true"></i>',         // Fog
-        48: '<i class="fas fa-smog weather-condition-cloud" aria-hidden="true"></i>',         // Depositing rime fog
-        51: '<i class="fas fa-cloud-sun-rain weather-condition-rain" aria-hidden="true"></i>', // Drizzle: Light
-        53: '<i class="fas fa-cloud-sun-rain weather-condition-rain" aria-hidden="true"></i>', // Drizzle: Moderate
-        55: '<i class="fas fa-cloud-showers-heavy weather-condition-rain" aria-hidden="true"></i>', // Drizzle: Dense
-        61: '<i class="fas fa-cloud-showers-heavy weather-condition-rain" aria-hidden="true"></i>', // Rain: Slight
-        63: '<i class="fas fa-cloud-showers-heavy weather-condition-rain" aria-hidden="true"></i>', // Rain: Moderate
-        65: '<i class="fas fa-cloud-showers-heavy weather-condition-rain" aria-hidden="true"></i>', // Rain: Heavy
-        71: '<i class="fas fa-snowflake weather-condition-snow" aria-hidden="true"></i>',    // Snow fall: Slight
-        73: '<i class="fas fa-snowflake weather-condition-snow" aria-hidden="true"></i>',    // Snow fall: Moderate
-        75: '<i class="fas fa-snowflake weather-condition-snow" aria-hidden="true"></i>',    // Snow fall: Heavy
-        77: '<i class="fas fa-snowflake weather-condition-snow" aria-hidden="true"></i>',    // Snow grains
-        80: '<i class="fas fa-cloud-sun-rain weather-condition-rain" aria-hidden="true"></i>', // Rain showers: Slight
-        81: '<i class="fas fa-cloud-showers-heavy weather-condition-rain" aria-hidden="true"></i>', // Rain showers: Moderate
-        82: '<i class="fas fa-cloud-showers-heavy weather-condition-rain" aria-hidden="true"></i>', // Rain showers: Violent
-        85: '<i class="fas fa-snowflake weather-condition-snow" aria-hidden="true"></i>',    // Snow showers: Slight
-        86: '<i class="fas fa-snowflake weather-condition-snow" aria-hidden="true"></i>',    // Snow showers: Heavy
-        95: '<i class="fas fa-bolt weather-condition-storm" aria-hidden="true"></i>',         // Thunderstorm
-        96: '<i class="fas fa-bolt weather-condition-storm" aria-hidden="true"></i>',         // Thunderstorm with slight hail
-        99: '<i class="fas fa-bolt weather-condition-storm" aria-hidden="true"></i>'          // Thunderstorm with heavy hail
-      };
-      return weatherCodes[code] || '<i class="fas fa-cloud-sun weather-condition-partly-cloudy" aria-hidden="true"></i>';
-    }
-
     function getWeatherDescription(code) {
       const descriptions = {
         0: 'Ciel dégagé',
