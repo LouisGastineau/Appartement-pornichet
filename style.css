@@ -375,6 +375,30 @@ footer a:hover {
   line-height: 1;
 }
 
+.weather-condition-sun {
+  color: #FFD166;
+}
+
+.weather-condition-partly-cloudy {
+  color: #F6BD60;
+}
+
+.weather-condition-cloud {
+  color: #B0BEC5;
+}
+
+.weather-condition-rain {
+  color: #4D96FF;
+}
+
+.weather-condition-snow {
+  color: #A9DEF9;
+}
+
+.weather-condition-storm {
+  color: #B388EB;
+}
+
 .weather-temp {
   font-weight: 600;
   letter-spacing: 0.5px;
