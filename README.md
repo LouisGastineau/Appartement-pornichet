@@ -13,8 +13,7 @@ This website showcases **"Fleur de thé"** (C301), a charming apartment rental l
 - **📋 House Rules**: Important guidelines for guests including noise regulations and plant watering etiquette
 - **🎨 Activities**: Local activities, attractions, POIs, museums, sports rentals, and sea windmill visits
 - **🛒 Equipment**: Nearby commerces and services (shops, bakeries, markets, pharmacies)
-- **🍽️ Se nourrir**: Restaurants, bakeries, and markets with interactive Leaflet map
-- **🗺️ Interactive Map**: Leaflet-powered maps with OpenStreetMap showing recommended restaurants, activities, and points of interest
+- **🍽️ Se nourrir**: Restaurants, bakeries, and markets
 - **🌤️ Weather Widget**: Quick-access real-time weather display in the navigation bar using Open-Meteo API
 - **☀️ Weather Page**: Dedicated page with comprehensive weather information including current conditions, 7-day forecast, marine/tide conditions, wind, and humidity details
 - **🌙 Dark Mode**: Toggle between light and dark themes with persistent preference storage
@@ -49,7 +48,6 @@ The activities page showcases local attractions and things to do in Pornichet:
 - **Discovery and culture** (🎨): Local markets, coastal trails, nearby attractions like La Baule and Brière Natural Park
 - **Points of interest** (🗺️): Marina, beaches, Saint-Nazaire offshore wind farm, and local heritage sites
 - **Sports equipment rental** (🏄): Information about bike, surfboard, kayak, and diving equipment rentals
-- **Interactive map**: Leaflet map with OpenStreetMap tiles showing beaches, sports activities, restaurants, and points of interest with custom markers
 
 ### Weather Page
 ![Weather Screenshot](screenshots/weather-screenshot.png)
@@ -70,9 +68,6 @@ The dedicated weather page provides comprehensive meteorological information for
   - Bootstrap's JavaScript bundle for responsive components
   - Custom dark mode toggle (`dark-mode.js`) with localStorage persistence
   - Weather widget integration (`weather.js`)
-  - Interactive map with Leaflet (`activities-map-leaflet.js`)
-- **Leaflet 1.9.4**: Open-source JavaScript library for interactive maps (no API key required)
-- **OpenStreetMap**: Free, collaborative map tiles for Leaflet
 - **Open-Meteo API**: Free weather data (no API key required)
 - **Open-Meteo Marine API**: Ocean/wave conditions and marine data
 
@@ -90,17 +85,6 @@ npx http-server -p 8000
 
 Then navigate to `http://localhost:8000` in your browser.
 
-### Using Leaflet Maps
-
-The interactive maps on the Activities and Restaurants pages use Leaflet with OpenStreetMap tiles. This approach:
-- **Requires no API key** - works immediately out of the box
-- **Open-source and free** - powered by the OpenStreetMap community 🇺🇦
-- **Fully customizable** - easy to add markers and customize appearance
-- **No usage limits** - completely free to use
-- **Lightweight and fast** - excellent performance on all devices
-
-The map data is defined directly in `activities-map-leaflet.js` with coordinates and popup information for each point of interest.
-
 ## Pages
 
 - **index.html** - Homepage with welcome message and highlights
@@ -109,7 +93,7 @@ The map data is defined directly in `activities-map-leaflet.js` with coordinates
 - **regles.html** - Complete list of rules and regulations
 - **activities.html** - Local activities, attractions, POIs, museums, and sports equipment rentals
 - **equipement.html** - Commerces and services (shops, bakeries, markets, pharmacies)
-- **se-nourrir.html** - Restaurants, bakeries, and markets with embedded Google My Maps
+- **se-nourrir.html** - Restaurants, bakeries, and markets
 - **weather.html** - Detailed weather page with current conditions, 7-day forecast, marine conditions, and additional weather information
 - **contact.html** - Contact information
 
@@ -123,10 +107,6 @@ The website features the "Fleur de thé" brand with:
 ## Credits
 
 © 2025 Gastineau Louis | Made with 💖
-
-**Maps powered by:**
-- [Leaflet](https://leafletjs.com/) 🇺🇦 - Open-source JavaScript library for interactive maps
-- [OpenStreetMap](https://www.openstreetmap.org/) - Free, collaborative map data
 
 ---
 
