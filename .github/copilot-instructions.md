@@ -10,7 +10,6 @@ This is a static website for "Fleur de thé" (C301), a vacation rental apartment
 - **Bootstrap 5.3.3**: Responsive design framework via CDN
 - **CSS3**: Custom styling in `style.css` with CSS variables for theming
 - **Vanilla JavaScript**: No frameworks - pure JavaScript for interactivity
-- **Leaflet**: Interactive maps with OpenStreetMap
 - **Open-Meteo API**: Weather data integration (no API key required)
 
 ## Code Style and Conventions
@@ -46,7 +45,7 @@ This is a static website for "Fleur de thé" (C301), a vacation rental apartment
 - Keep scripts modular - separate files for different features:
   - `dark-mode.js`: Theme switching
   - `weather.js`: Weather widget
-  - `activities-map-leaflet.js`: Leaflet map integration for activities and restaurants
+  - `carousel.js`: Gestion des indicateurs de carrousel pour un nombre variable d’images
 - Add error handling for API calls
 - Use `addEventListener` for event handling
 
@@ -88,8 +87,6 @@ This is a static website for "Fleur de thé" (C301), a vacation rental apartment
 - Verify both light and dark modes
 
 ### API Keys
-- No API keys required for maps - Leaflet uses OpenStreetMap tiles
-- See `activities-map-leaflet.js` for map configuration and markers
 
 ## Common Tasks
 
@@ -129,7 +126,7 @@ Note: Maintaining navigation consistency across pages requires updating multiple
 - `style.css`: All custom styles and theming
 - `dark-mode.js`: Theme switching logic
 - `weather.js`: Weather widget integration
-- `activities-map-leaflet.js`: Leaflet map with points of interest
+- `carousel.js`: Gestion dynamique des indicateurs de carrousel
 
 ## Website Content Guidelines
 
